@@ -19,6 +19,8 @@ namespace MvxPractice.UIElements
 
         [SerializeField]
         private Sprite lockedSprite;
+
+        public Button Button => levelUpButton;
         
         [Button]
         public void SetAvailable(bool isAvailable)

@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace MvxPractice.Data
@@ -9,6 +8,10 @@ namespace MvxPractice.Data
         [SerializeField]
         private UserInfo userInfo = new();
 
+        [SerializeField]
+        private PlayerLevel playerLevelInfo = new();
+
         public UserInfo UserInfoObject => userInfo;
+        public PlayerLevel PlayerLevelInfoObject => playerLevelInfo;
     }
 }

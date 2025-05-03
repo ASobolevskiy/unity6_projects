@@ -1,15 +1,17 @@
 using MvxPractice.Data;
 using MvxPractice.Presenters.Interfaces;
-using UnityEngine;
 
 namespace MvxPractice.Presenters
 {
-    public class HeroPopupPresenter : IHeroPopupPresenter
+    public sealed class HeroPopupPresenter : IHeroPopupPresenter
     {
         public IUserInfoPresenter UserInfoPresenter { get; }
+        public IExperiencePresenter ExperiencePresenter { get; }
+
         public HeroPopupPresenter(HeroInfo heroInfo)
         {
             UserInfoPresenter = new UserInfoPresenter(heroInfo.UserInfoObject);
+            ExperiencePresenter = new ExperiencePresenter(heroInfo.PlayerLevelInfoObject);
         }
     }
 }

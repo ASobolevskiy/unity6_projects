@@ -1,7 +1,6 @@
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace MvxPractice.UIElements
@@ -19,6 +18,9 @@ namespace MvxPractice.UIElements
 
         [SerializeField]
         private Sprite completedProgressSprite;
+
+        private int _currentValue;
+        private int _maxValue;
         
         [Button]
         private void SetupSliderSprites()
@@ -27,6 +29,31 @@ namespace MvxPractice.UIElements
             img.sprite = slider.value < slider.maxValue 
                 ? uncompletedProgressSprite 
                 : completedProgressSprite;
+        }
+
+        public void SetCurrentValue(int value)
+        {
+            _currentValue = value;
+            SetText();
+            SetSliderValue();
+        }
+
+        public void SetMaxValue(int value)
+        {
+            _maxValue = value;
+            SetText();
+            SetSliderValue();
+        }
+
+        private void SetText()
+        {
+            experienceText.text = $"XP: {_currentValue}/{_maxValue}";
+        }
+
+        private void SetSliderValue()
+        {
+            slider.value = (float)_currentValue / _maxValue;
+            SetupSliderSprites();
         }
     }
 }

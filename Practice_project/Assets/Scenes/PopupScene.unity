@@ -250,6 +250,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510719507}
   m_CullTransparentMesh: 1
+--- !u!114 &523633156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 788901974566747350, guid: 573efcc43cbc5934399b78dda318573a, type: 3}
+  m_PrefabInstance: {fileID: 3024128814524952032}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd083149ca742709d823bc20a79745c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &650973732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8352009779114982681, guid: 573efcc43cbc5934399b78dda318573a, type: 3}
+  m_PrefabInstance: {fileID: 3024128814524952032}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526ddcd6cc34418183f1b29eb9cc8a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1047348320
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +393,17 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &1174713409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2385244539399468134, guid: 573efcc43cbc5934399b78dda318573a, type: 3}
+  m_PrefabInstance: {fileID: 3024128814524952032}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1193118385
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,10 +786,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7666b2a93fcc4458aff07176e2289ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _headerText: {fileID: 2031195308}
-  _closeButton: {fileID: 510719509}
-  _portrait: {fileID: 387598669}
-  _description: {fileID: 1335899676}
+  headerText: {fileID: 2031195308}
+  closeButton: {fileID: 510719509}
+  portrait: {fileID: 387598669}
+  description: {fileID: 1335899676}
+  level: {fileID: 1174713409}
+  experienceProgressBar: {fileID: 650973732}
+  levelUpButton: {fileID: 523633156}
 --- !u!1001 &3024128814524952032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -892,6 +928,10 @@ PrefabInstance:
     - target: {fileID: 8053963399313078304, guid: 573efcc43cbc5934399b78dda318573a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.4906006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229399903396826222, guid: 573efcc43cbc5934399b78dda318573a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
