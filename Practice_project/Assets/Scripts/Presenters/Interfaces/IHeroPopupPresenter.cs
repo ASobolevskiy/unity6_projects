@@ -4,5 +4,6 @@ namespace MvxPractice.Presenters.Interfaces
     {
         public IUserInfoPresenter UserInfoPresenter { get; }
         public IExperiencePresenter ExperiencePresenter { get; }
+        public ICharacterInfoPresenter CharacterInfoPresenter { get; }
     }
 }

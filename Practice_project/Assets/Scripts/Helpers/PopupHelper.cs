@@ -9,14 +9,22 @@ namespace MvxPractice.Helpers
     public sealed class PopupHelper : MonoBehaviour
     {
         [SerializeField]
+        private HeroData heroData;
+        
+        [Space]
+        
+        [SerializeField]
         private HeroPopup heroPopup;
 
-        [SerializeField]
-        private HeroInfo heroInfo;
+        [Space]
+        
+        [ShowInInspector]
+        private HeroInfo heroInfo = new();
         
         [Button]
         private void ShowPopup()
         {
+            heroInfo.ParseInfo(heroData);
             var presenter = new HeroPopupPresenter(heroInfo);
             heroPopup.Show(presenter);
         }

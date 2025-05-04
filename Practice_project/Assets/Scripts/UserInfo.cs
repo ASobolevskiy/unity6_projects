@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace MvxPractice
 {
-    [Serializable]
     public sealed class UserInfo
     {
         public event Action<string> OnNameChanged;

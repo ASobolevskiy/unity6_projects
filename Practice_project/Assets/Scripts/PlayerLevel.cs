@@ -3,7 +3,6 @@ using Sirenix.OdinInspector;
 
 namespace MvxPractice
 {
-    [Serializable]
     public sealed class PlayerLevel
     {
         public event Action OnLevelUp;
@@ -41,5 +40,7 @@ namespace MvxPractice
         {
             return CurrentExperience == RequiredExperience;
         }
+
+        public void SetCurrentLevel(int level) => CurrentLevel = level;
     }
 }

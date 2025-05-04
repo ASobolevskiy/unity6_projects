@@ -48,5 +48,13 @@ namespace MvxPractice
         {
             return stats.ToArray();
         }
+
+        public void SetStats(List<CharacterStat> characterStats)
+        {
+            foreach (var characterStat in characterStats)
+            {
+                stats.Add(characterStat);
+            }
+        }
     }
 }

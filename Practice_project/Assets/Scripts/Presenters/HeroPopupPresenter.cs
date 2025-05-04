@@ -7,11 +7,14 @@ namespace MvxPractice.Presenters
     {
         public IUserInfoPresenter UserInfoPresenter { get; }
         public IExperiencePresenter ExperiencePresenter { get; }
+        public ICharacterInfoPresenter CharacterInfoPresenter { get; }
+
 
         public HeroPopupPresenter(HeroInfo heroInfo)
         {
             UserInfoPresenter = new UserInfoPresenter(heroInfo.UserInfoObject);
             ExperiencePresenter = new ExperiencePresenter(heroInfo.PlayerLevelInfoObject);
+            CharacterInfoPresenter = new CharacterInfoPresenter(heroInfo.CharacterInfoObject);
         }
     }
 }
