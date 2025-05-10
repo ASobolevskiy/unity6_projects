@@ -14,9 +14,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   local: 0
   namespace: Atomic.Entities
-  directoryPath: Assets/Codegen
+  directoryPath: Assets/GeneratedCode
   suffix: API
-  imports: []
+  imports:
+  - Atomic.Elements
+  - AtomicPlayground
+  - AtomicPlayground.Utils
   categories:
-  - name: Fire
-    indexes: []
+  - name: Moving
+    indexes:
+    - id: 1
+      name: RootTransform
+      type: Transform
+    - id: 2
+      name: MoveSpeed
+      type: ReactiveVariable<float>
+    - id: 3
+      name: MoveDirection
+      type: ReactiveVariable<Vector3>
+    - id: 12
+      name: IsMoving
+      type: ReactiveVariable<bool>
+  - name: Health
+    indexes:
+    - id: 4
+      name: HitPoints
+      type: ReactiveVariable<int>
+    - id: 5
+      name: IsDead
+      type: ReactiveVariable<bool>
+    - id: 6
+      name: TakeDamageAction
+      type: BaseEvent<int>
+  - name: Shooting
+    indexes:
+    - id: 7
+      name: ReloadTime
+      type: ReactiveVariable<float>
+    - id: 8
+      name: IsReloading
+      type: ReactiveVariable<bool>
+    - id: 9
+      name: BulletPrefab
+      type: Bullet
+    - id: 10
+      name: FirePointTransform
+      type: Transform
+    - id: 11
+      name: ShootAction
+      type: BaseEvent
+    - id: 14
+      name: ShootRequest
+      type: IEvent
+    - id: 15
+      name: ShootEvent
+      type: IEvent
+  - name: Animation
+    indexes:
+    - id: 13
+      name: Animator
+      type: Animator
+    - id: 16
+      name: AnimationEventDispatcher
+      type: AnimationEventDispatcher
