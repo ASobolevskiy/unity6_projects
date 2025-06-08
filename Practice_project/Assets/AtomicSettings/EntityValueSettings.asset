@@ -14,9 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   local: 0
   namespace: Atomic.Entities
-  directoryPath: Assets/Codegen
+  directoryPath: Assets/Game/AtomicGeneratedCode
   suffix: API
-  imports: []
+  imports:
+  - Atomic.Elements
   categories:
-  - name: Fire
-    indexes: []
+  - name: Movement
+    indexes:
+    - id: 1
+      name: RootTransform
+      type: Transform
+    - id: 2
+      name: MovementSpeed
+      type: ReactiveVariable<float>
+    - id: 3
+      name: MovementDirection
+      type: ReactiveVariable<Vector3>
