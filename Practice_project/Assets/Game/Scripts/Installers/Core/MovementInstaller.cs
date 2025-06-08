@@ -1,10 +1,11 @@
+using Atomic.Elements;
 using Atomic.Entities;
 using Game.Behaviours;
 using UnityEngine;
 
 namespace Game.Installers
 {
-    public class MovementInstaller : SceneEntityInstallerBase
+    public sealed class MovementInstaller : SceneEntityInstallerBase
     {
         [SerializeField]
         private Transform _rootTransform;
@@ -19,6 +20,7 @@ namespace Game.Installers
             entity.SetRootTransform(_rootTransform);
             entity.SetMovementSpeed(_movementSpeed);
             entity.SetMovementDirection(_movementDirection);
+            entity.SetIsMoving(new ReactiveVariable<bool>());
 
             entity.AddBehaviour(new MovementBehaviour());
         }

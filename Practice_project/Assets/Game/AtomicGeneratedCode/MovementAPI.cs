@@ -6,6 +6,7 @@ using UnityEngine;
 using Atomic.Entities;
 using System.Runtime.CompilerServices;
 using Atomic.Elements;
+using Game.Utils;
 
 namespace Atomic.Entities
 {
@@ -15,6 +16,7 @@ namespace Atomic.Entities
         public const int RootTransform = 1; // Transform
         public const int MovementSpeed = 2; // ReactiveVariable<float>
         public const int MovementDirection = 3; // ReactiveVariable<Vector3>
+        public const int IsMoving = 4; // ReactiveVariable<bool>
 
 
         ///Extensions
@@ -71,5 +73,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetMovementDirection(this IEntity obj, ReactiveVariable<Vector3> value) => obj.SetValue(MovementDirection, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<bool> GetIsMoving(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(IsMoving);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetIsMoving(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(IsMoving, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddIsMoving(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(IsMoving, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasIsMoving(this IEntity obj) => obj.HasValue(IsMoving);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelIsMoving(this IEntity obj) => obj.DelValue(IsMoving);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetIsMoving(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsMoving, value);
     }
 }

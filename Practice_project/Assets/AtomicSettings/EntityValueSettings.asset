@@ -18,6 +18,7 @@ MonoBehaviour:
   suffix: API
   imports:
   - Atomic.Elements
+  - Game.Utils
   categories:
   - name: Movement
     indexes:
@@ -30,3 +31,14 @@ MonoBehaviour:
     - id: 3
       name: MovementDirection
       type: ReactiveVariable<Vector3>
+    - id: 4
+      name: IsMoving
+      type: ReactiveVariable<bool>
+  - name: VisualAnimation
+    indexes:
+    - id: 5
+      name: Animator
+      type: Animator
+    - id: 6
+      name: AnimationEventDispatcher
+      type: AnimationEventDispatcher

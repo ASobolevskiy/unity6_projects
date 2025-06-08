@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Controllers
 {
-    public class MouseLookController : MonoBehaviour
+    public sealed class MouseLookController : MonoBehaviour
     {
         [SerializeField]
         private SceneEntity _entity;
