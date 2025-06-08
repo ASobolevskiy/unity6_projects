@@ -21,6 +21,7 @@ namespace Atomic.Entities
         public const int ShootAction = 11; // BaseEvent
         public const int ShootRequest = 14; // IEvent
         public const int ShootEvent = 15; // IEvent
+        public const int AmmoMax = 17; // int
 
 
         ///Extensions
@@ -149,5 +150,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetShootEvent(this IEntity obj, IEvent value) => obj.SetValue(ShootEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int GetAmmoMax(this IEntity obj) => obj.GetValue<int>(AmmoMax);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetAmmoMax(this IEntity obj, out int value) => obj.TryGetValue(AmmoMax, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddAmmoMax(this IEntity obj, int value) => obj.AddValue(AmmoMax, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasAmmoMax(this IEntity obj) => obj.HasValue(AmmoMax);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelAmmoMax(this IEntity obj) => obj.DelValue(AmmoMax);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetAmmoMax(this IEntity obj, int value) => obj.SetValue(AmmoMax, value);
     }
 }

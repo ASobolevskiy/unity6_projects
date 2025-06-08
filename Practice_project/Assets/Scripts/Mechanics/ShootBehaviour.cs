@@ -15,6 +15,9 @@ namespace AtomicPlayground.Mechanics
         private Transform _firePointTransform;
         private BaseEvent _shootAction;
 
+        private int _maxAmmo;
+        private int _currentAmmo;
+
         public void Init(IEntity entity)
         {
             _reloadTime = entity.GetReloadTime();
@@ -24,6 +27,9 @@ namespace AtomicPlayground.Mechanics
             
             _shootAction = entity.GetShootAction();
             _shootAction.Subscribe(HandleOnShoot);
+
+            _maxAmmo = entity.GetAmmoMax();
+            _currentAmmo = _maxAmmo;
         }
 
         public void OnUpdate(IEntity entity, float deltaTime)
@@ -37,13 +43,14 @@ namespace AtomicPlayground.Mechanics
 
         private void HandleOnShoot()
         {
-            if (_isReloading.Value)
+            if (_isReloading.Value || _currentAmmo == 0)
                 return;
             var bullet = Object.Instantiate(_bulletPrefab, _firePointTransform.position, _firePointTransform.rotation);
             bullet.SetDirection(_firePointTransform.forward);
             
             _reloadTimer = _reloadTime.Value;
             _isReloading.Value = true;
+            _currentAmmo--;
         }
 
         public void Dispose(IEntity entity)

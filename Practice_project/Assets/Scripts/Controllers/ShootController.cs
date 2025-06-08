@@ -15,7 +15,7 @@ namespace AtomicPlayground.Controllers
 
         private void HandleShoot()
         {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButton(0))
                 Shoot();
         }
 

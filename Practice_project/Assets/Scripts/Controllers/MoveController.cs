@@ -16,7 +16,23 @@ namespace AtomicPlayground.Controllers
 
         private void HandleKeyboard()
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+            {
+                Move(new Vector3(-1, 0, 1));
+            }
+            else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+            {
+                Move(new Vector3(1,0,1));
+            }
+            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+            {
+                Move(new Vector3(-1,0,-1));
+            }
+            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+            {
+                Move(new Vector3(1,0,-1));
+            }
+            else if (Input.GetKey(KeyCode.W))
             {
                 Move(Vector3.forward);
             }
