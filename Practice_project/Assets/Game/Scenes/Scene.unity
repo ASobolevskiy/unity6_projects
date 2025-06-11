@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 18385285}
   - component: {fileID: 18385286}
   - component: {fileID: 18385287}
+  - component: {fileID: 18385288}
   m_Layer: 0
   m_Name: '[System]'
   m_TagString: GameContext
@@ -181,6 +182,19 @@ MonoBehaviour:
   _layer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &18385288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18385282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c89f73cf2a4fc59f6fb7de79946442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 625937919}
 --- !u!1 &91941558
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +256,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -600,6 +615,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6378945258768650400, guid: 3b5b2ae0f895574449961910366cbf8a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 625937922}
+    - targetCorrespondingSourceObject: {fileID: 6378945258768650400, guid: 3b5b2ae0f895574449961910366cbf8a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 625937923}
     - targetCorrespondingSourceObject: {fileID: 8550233314304206884, guid: 3b5b2ae0f895574449961910366cbf8a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1430375699}
@@ -610,6 +628,11 @@ PrefabInstance:
 --- !u!4 &625937916 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3006422773680130874, guid: 3b5b2ae0f895574449961910366cbf8a, type: 3}
+  m_PrefabInstance: {fileID: 625937915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &625937917 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1067890634428359185, guid: 3b5b2ae0f895574449961910366cbf8a, type: 3}
   m_PrefabInstance: {fileID: 625937915}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &625937919
@@ -660,6 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementInstaller: {fileID: 625937920}
+  _shootingInstaller: {fileID: 625937923}
 --- !u!114 &625937922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +696,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603a745f80e14d1d8cd57cf70a50187f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &625937923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117804872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e529ace628e447c78b9a9f43c43bf282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firePointTransform: {fileID: 625937917}
+  _shootDelayTime: 0.2
+  _maxAmmo: 30
+  _ammoReplenishTime: 2
+  _bullet: {fileID: 719627403767661932, guid: 7f12394cd99a93a4c8a18e1a0b1cbf06, type: 3}
 --- !u!1 &797904596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1285,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1599,7 +1641,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:

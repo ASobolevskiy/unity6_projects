@@ -42,3 +42,43 @@ MonoBehaviour:
     - id: 6
       name: AnimationEventDispatcher
       type: AnimationEventDispatcher
+  - name: Shooting
+    indexes:
+    - id: 7
+      name: FirePointTransform
+      type: Transform
+    - id: 8
+      name: ShootDelayTime
+      type: ReactiveVariable<float>
+    - id: 9
+      name: IsReloading
+      type: ReactiveVariable<bool>
+    - id: 10
+      name: BulletPrefab
+      type: SceneEntity
+    - id: 11
+      name: MaximumAmmo
+      type: ReactiveVariable<int>
+    - id: 12
+      name: AmmoReplenishTime
+      type: ReactiveVariable<float>
+    - id: 13
+      name: ShootRequest
+      type: IEvent
+    - id: 14
+      name: ShootAction
+      type: IEvent
+    - id: 15
+      name: ShootEvent
+      type: IEvent
+  - name: BulletMovement
+    indexes:
+    - id: 16
+      name: BulletSpeed
+      type: ReactiveVariable<float>
+    - id: 17
+      name: BulletTransform
+      type: Transform
+    - id: 18
+      name: BulletDirection
+      type: ReactiveVariable<Vector3>
