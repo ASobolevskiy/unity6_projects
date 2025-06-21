@@ -26,9 +26,11 @@ namespace Game.Installers
             entity.SetFirePointTransform(_firePointTransform);
             entity.SetShootDelayTime(_shootDelayTime);
             entity.SetBulletPrefab(_bullet);
-            entity.SetIsReloading(new ReactiveVariable<bool>());
+            entity.SetIsShotDelaying(new ReactiveVariable<bool>());
             entity.SetMaximumAmmo(_maxAmmo);
             entity.SetAmmoReplenishTime(_ammoReplenishTime);
+            entity.SetIsAmmoReplenishing(new ReactiveVariable<bool>());
+            entity.SetCurrentAmmo(_maxAmmo);
             entity.SetShootRequest(new BaseEvent());
             entity.SetShootAction(new BaseEvent());
             entity.SetShootEvent(new BaseEvent());

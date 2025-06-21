@@ -15,13 +15,15 @@ namespace Atomic.Entities
         ///Keys
         public const int FirePointTransform = 7; // Transform
         public const int ShootDelayTime = 8; // ReactiveVariable<float>
-        public const int IsReloading = 9; // ReactiveVariable<bool>
+        public const int IsShotDelaying = 9; // ReactiveVariable<bool>
         public const int BulletPrefab = 10; // SceneEntity
         public const int MaximumAmmo = 11; // ReactiveVariable<int>
         public const int AmmoReplenishTime = 12; // ReactiveVariable<float>
         public const int ShootRequest = 13; // IEvent
         public const int ShootAction = 14; // IEvent
         public const int ShootEvent = 15; // IEvent
+        public const int IsAmmoReplenishing = 19; // ReactiveVariable<bool>
+        public const int CurrentAmmo = 20; // ReactiveVariable<int>
 
 
         ///Extensions
@@ -62,22 +64,22 @@ namespace Atomic.Entities
         public static void SetShootDelayTime(this IEntity obj, ReactiveVariable<float> value) => obj.SetValue(ShootDelayTime, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ReactiveVariable<bool> GetIsReloading(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(IsReloading);
+        public static ReactiveVariable<bool> GetIsShotDelaying(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(IsShotDelaying);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool TryGetIsReloading(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(IsReloading, out value);
+        public static bool TryGetIsShotDelaying(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(IsShotDelaying, out value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool AddIsReloading(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(IsReloading, value);
+        public static bool AddIsShotDelaying(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(IsShotDelaying, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool HasIsReloading(this IEntity obj) => obj.HasValue(IsReloading);
+        public static bool HasIsShotDelaying(this IEntity obj) => obj.HasValue(IsShotDelaying);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool DelIsReloading(this IEntity obj) => obj.DelValue(IsReloading);
+        public static bool DelIsShotDelaying(this IEntity obj) => obj.DelValue(IsShotDelaying);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void SetIsReloading(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsReloading, value);
+        public static void SetIsShotDelaying(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsShotDelaying, value);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static SceneEntity GetBulletPrefab(this IEntity obj) => obj.GetValue<SceneEntity>(BulletPrefab);
@@ -186,5 +188,41 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetShootEvent(this IEntity obj, IEvent value) => obj.SetValue(ShootEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<bool> GetIsAmmoReplenishing(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(IsAmmoReplenishing);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetIsAmmoReplenishing(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(IsAmmoReplenishing, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddIsAmmoReplenishing(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(IsAmmoReplenishing, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasIsAmmoReplenishing(this IEntity obj) => obj.HasValue(IsAmmoReplenishing);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelIsAmmoReplenishing(this IEntity obj) => obj.DelValue(IsAmmoReplenishing);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetIsAmmoReplenishing(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsAmmoReplenishing, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<int> GetCurrentAmmo(this IEntity obj) => obj.GetValue<ReactiveVariable<int>>(CurrentAmmo);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCurrentAmmo(this IEntity obj, out ReactiveVariable<int> value) => obj.TryGetValue(CurrentAmmo, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCurrentAmmo(this IEntity obj, ReactiveVariable<int> value) => obj.AddValue(CurrentAmmo, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCurrentAmmo(this IEntity obj) => obj.HasValue(CurrentAmmo);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCurrentAmmo(this IEntity obj) => obj.DelValue(CurrentAmmo);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCurrentAmmo(this IEntity obj, ReactiveVariable<int> value) => obj.SetValue(CurrentAmmo, value);
     }
 }

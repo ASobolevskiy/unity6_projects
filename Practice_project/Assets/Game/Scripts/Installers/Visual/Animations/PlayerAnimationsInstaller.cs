@@ -19,6 +19,7 @@ namespace Game.Installers.Visual.Animations
             entity.SetAnimationEventDispatcher(_dispatcher);
 
             entity.AddBehaviour(new PlayerMovementAnimationBehaviour());
+            entity.AddBehaviour(new PlayerShootingAnimationBehaviour());
         }
     }
 }

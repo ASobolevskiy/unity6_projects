@@ -51,7 +51,7 @@ MonoBehaviour:
       name: ShootDelayTime
       type: ReactiveVariable<float>
     - id: 9
-      name: IsReloading
+      name: IsShotDelaying
       type: ReactiveVariable<bool>
     - id: 10
       name: BulletPrefab
@@ -71,6 +71,12 @@ MonoBehaviour:
     - id: 15
       name: ShootEvent
       type: IEvent
+    - id: 19
+      name: IsAmmoReplenishing
+      type: ReactiveVariable<bool>
+    - id: 20
+      name: CurrentAmmo
+      type: ReactiveVariable<int>
   - name: BulletMovement
     indexes:
     - id: 16
