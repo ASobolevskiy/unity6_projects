@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Installers
 {
-    public class ShootingInstaller : SceneEntityInstallerBase
+    public sealed class ShootingInstaller : SceneEntityInstallerBase
     {
         [SerializeField]
         private Transform _firePointTransform;

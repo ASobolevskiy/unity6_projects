@@ -10,10 +10,14 @@ namespace Game.Installers
 
         [SerializeField]
         private ShootingInstaller _shootingInstaller;
+
+        [SerializeField]
+        private HealthInstaller _healthInstaller;
         public override void Install(IEntity entity)
         {
             _movementInstaller.Install(entity);
             _shootingInstaller.Install(entity);
+            _healthInstaller.Install(entity);
         }
     }
 }

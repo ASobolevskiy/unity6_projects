@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Behaviours
 {
-    public class BulletMovementBehaviour : IEntityInit, IEntityUpdate
+    public sealed class BulletMovementBehaviour : IEntityInit, IEntityUpdate
     {
         private Transform _root;
         private ReactiveVariable<Vector3> _movementDirection;

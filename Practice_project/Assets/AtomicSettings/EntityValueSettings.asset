@@ -88,3 +88,14 @@ MonoBehaviour:
     - id: 18
       name: BulletDirection
       type: ReactiveVariable<Vector3>
+  - name: Health
+    indexes:
+    - id: 21
+      name: Hitpoints
+      type: ReactiveVariable<int>
+    - id: 22
+      name: IsDead
+      type: ReactiveVariable<bool>
+    - id: 23
+      name: TakeDamageAction
+      type: BaseEvent<int>

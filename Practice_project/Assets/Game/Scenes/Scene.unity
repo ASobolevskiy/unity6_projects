@@ -618,6 +618,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6378945258768650400, guid: 3b5b2ae0f895574449961910366cbf8a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 625937923}
+    - targetCorrespondingSourceObject: {fileID: 6378945258768650400, guid: 3b5b2ae0f895574449961910366cbf8a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 625937926}
     - targetCorrespondingSourceObject: {fileID: 8550233314304206884, guid: 3b5b2ae0f895574449961910366cbf8a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1430375699}
@@ -684,6 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementInstaller: {fileID: 625937920}
   _shootingInstaller: {fileID: 625937923}
+  _healthInstaller: {fileID: 625937926}
 --- !u!114 &625937922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,6 +717,19 @@ MonoBehaviour:
   _maxAmmo: 30
   _ammoReplenishTime: 2
   _bullet: {fileID: 719627403767661932, guid: 7f12394cd99a93a4c8a18e1a0b1cbf06, type: 3}
+--- !u!114 &625937926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117804872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f36b4b095804998bc6cc0d41f58a5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitPoints: 10
 --- !u!1 &797904596
 GameObject:
   m_ObjectHideFlags: 0

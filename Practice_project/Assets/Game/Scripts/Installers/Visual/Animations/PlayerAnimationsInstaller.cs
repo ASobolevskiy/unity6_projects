@@ -20,6 +20,7 @@ namespace Game.Installers.Visual.Animations
 
             entity.AddBehaviour(new PlayerMovementAnimationBehaviour());
             entity.AddBehaviour(new PlayerShootingAnimationBehaviour());
+            entity.AddBehaviour(new PlayerDeathAnimationBehaviour());
         }
     }
 }

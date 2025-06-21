@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Behaviours
 {
-    public class ShootingBehaviour : IEntityInit, IEntityUpdate, IEntityDispose
+    public sealed class ShootingBehaviour : IEntityInit, IEntityUpdate, IEntityDispose
     {
         private SceneEntity _bulletPrefab;
         private Transform _firePointTransform;

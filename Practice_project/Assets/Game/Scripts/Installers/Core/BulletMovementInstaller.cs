@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Installers
 {
-    public class BulletMovementInstaller : SceneEntityInstallerBase
+    public sealed class BulletMovementInstaller : SceneEntityInstallerBase
     {
         [SerializeField]
         private float _bulletSpeed;
