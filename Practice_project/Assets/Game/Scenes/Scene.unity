@@ -662,6 +662,7 @@ MonoBehaviour:
   installPipeline:
   - {fileID: 625937921}
   - {fileID: 1430375699}
+  - {fileID: 802317120}
   onInstalled:
     m_PersistentCalls:
       m_Calls: []
