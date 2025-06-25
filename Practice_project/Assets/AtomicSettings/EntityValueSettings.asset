@@ -99,3 +99,11 @@ MonoBehaviour:
     - id: 23
       name: TakeDamageAction
       type: BaseEvent<int>
+  - name: PlayerSounds
+    indexes:
+    - id: 24
+      name: AudioSource
+      type: AudioSource
+    - id: 25
+      name: RifleShotSound
+      type: AudioClip
