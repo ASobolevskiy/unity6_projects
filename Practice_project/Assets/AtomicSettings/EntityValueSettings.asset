@@ -147,3 +147,8 @@ MonoBehaviour:
     - id: 31
       name: CanRotate
       type: AndExpression
+  - name: Enemy
+    indexes:
+    - id: 38
+      name: Target
+      type: Transform

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Visual.Animations.Behaviours
 {
-    public sealed class PlayerMovementAnimationBehaviour : IEntityInit, IEntityDispose
+    public sealed class MovementAnimationBehaviour : IEntityInit, IEntityDispose
     {
         private static readonly int s_isMoving = Animator.StringToHash("IsMoving");
 
