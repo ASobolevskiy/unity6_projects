@@ -24,6 +24,9 @@ namespace Atomic.Entities
         public const int ShootEvent = 15; // IEvent
         public const int IsAmmoReplenishing = 19; // ReactiveVariable<bool>
         public const int CurrentAmmo = 20; // ReactiveVariable<int>
+        public const int DryShotEvent = 28; // IEvent
+        public const int CanShoot = 29; // AndExpression
+        public const int CanReplenishBullets = 33; // AndExpression
 
 
         ///Extensions
@@ -224,5 +227,59 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetCurrentAmmo(this IEntity obj, ReactiveVariable<int> value) => obj.SetValue(CurrentAmmo, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IEvent GetDryShotEvent(this IEntity obj) => obj.GetValue<IEvent>(DryShotEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetDryShotEvent(this IEntity obj, out IEvent value) => obj.TryGetValue(DryShotEvent, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddDryShotEvent(this IEntity obj, IEvent value) => obj.AddValue(DryShotEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasDryShotEvent(this IEntity obj) => obj.HasValue(DryShotEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelDryShotEvent(this IEntity obj) => obj.DelValue(DryShotEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetDryShotEvent(this IEntity obj, IEvent value) => obj.SetValue(DryShotEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AndExpression GetCanShoot(this IEntity obj) => obj.GetValue<AndExpression>(CanShoot);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCanShoot(this IEntity obj, out AndExpression value) => obj.TryGetValue(CanShoot, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCanShoot(this IEntity obj, AndExpression value) => obj.AddValue(CanShoot, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCanShoot(this IEntity obj) => obj.HasValue(CanShoot);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCanShoot(this IEntity obj) => obj.DelValue(CanShoot);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCanShoot(this IEntity obj, AndExpression value) => obj.SetValue(CanShoot, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AndExpression GetCanReplenishBullets(this IEntity obj) => obj.GetValue<AndExpression>(CanReplenishBullets);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCanReplenishBullets(this IEntity obj, out AndExpression value) => obj.TryGetValue(CanReplenishBullets, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCanReplenishBullets(this IEntity obj, AndExpression value) => obj.AddValue(CanReplenishBullets, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCanReplenishBullets(this IEntity obj) => obj.HasValue(CanReplenishBullets);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCanReplenishBullets(this IEntity obj) => obj.DelValue(CanReplenishBullets);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCanReplenishBullets(this IEntity obj, AndExpression value) => obj.SetValue(CanReplenishBullets, value);
     }
 }

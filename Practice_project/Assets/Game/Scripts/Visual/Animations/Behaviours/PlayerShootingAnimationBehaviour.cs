@@ -17,11 +17,14 @@ namespace Game.Visual.Animations.Behaviours
         private IEvent _shootAction;
 
         private ReactiveVariable<bool> _isReloading;
+        private AndExpression _canShoot;
+        
         public void Init(IEntity entity)
         {
             _animator = entity.GetAnimator();
             _animationEventDispatcher = entity.GetAnimationEventDispatcher();
             _isReloading = entity.GetIsShotDelaying();
+            _canShoot = entity.GetCanShoot();
             
             _shootRequest = entity.GetShootRequest();
             _shootAction = entity.GetShootAction();
@@ -38,6 +41,8 @@ namespace Game.Visual.Animations.Behaviours
 
         private void OnShootRequested()
         {
+            if(!_canShoot.Invoke())
+                return;
             if (_isReloading.Value)
                 return;
             _animator.SetTrigger(s_shoot);

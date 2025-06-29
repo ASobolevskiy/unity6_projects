@@ -1,3 +1,4 @@
+using System;
 using Atomic.Elements;
 using Atomic.Entities;
 using Game.Core.Behaviours;
@@ -5,7 +6,8 @@ using UnityEngine;
 
 namespace Game.Core.Installers
 {
-    public sealed class ShootingInstaller : SceneEntityInstallerBase
+    [Serializable]
+    public sealed class ShootingInstaller : IEntityInstaller
     {
         [SerializeField]
         private Transform _firePointTransform;
@@ -21,7 +23,7 @@ namespace Game.Core.Installers
 
         [SerializeField]
         private SceneEntity _bullet;
-        public override void Install(IEntity entity)
+        public void Install(IEntity entity)
         {
             entity.SetFirePointTransform(_firePointTransform);
             entity.SetShootDelayTime(_shootDelayTime);
@@ -34,6 +36,9 @@ namespace Game.Core.Installers
             entity.SetShootRequest(new BaseEvent());
             entity.SetShootAction(new BaseEvent());
             entity.SetShootEvent(new BaseEvent());
+            entity.SetDryShotEvent(new BaseEvent());
+            entity.SetCanShoot(new AndExpression());
+            entity.SetCanReplenishBullets(new AndExpression());
 
             entity.AddBehaviour(new ShootingBehaviour());
         }

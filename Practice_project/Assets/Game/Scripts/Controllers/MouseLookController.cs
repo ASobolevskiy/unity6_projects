@@ -36,7 +36,7 @@ namespace Game.Controllers
             if (direction == Vector3.zero) 
                 return;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
-            _entity.transform.rotation = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
+            _entity.GetRotation().Value = Quaternion.Euler(0f, lookRotation.eulerAngles.y, 0f);
         }
     }
 }

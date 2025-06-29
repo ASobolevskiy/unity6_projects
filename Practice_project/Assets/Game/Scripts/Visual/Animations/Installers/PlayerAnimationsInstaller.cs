@@ -21,6 +21,7 @@ namespace Game.Visual.Animations.Installers
             entity.AddBehaviour(new PlayerMovementAnimationBehaviour());
             entity.AddBehaviour(new PlayerShootingAnimationBehaviour());
             entity.AddBehaviour(new PlayerDeathAnimationBehaviour());
+            entity.AddBehaviour(new PlayerTakeDamageAnimationBehaviour());
         }
     }
 }

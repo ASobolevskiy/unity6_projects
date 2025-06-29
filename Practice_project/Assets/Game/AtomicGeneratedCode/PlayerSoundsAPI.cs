@@ -15,6 +15,9 @@ namespace Atomic.Entities
         ///Keys
         public const int AudioSource = 24; // AudioSource
         public const int RifleShotSound = 25; // AudioClip
+        public const int RifleDryShotSound = 27; // AudioClip
+        public const int PainSound = 36; // AudioClip
+        public const int DeathSound = 37; // AudioClip
 
 
         ///Extensions
@@ -53,5 +56,59 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetRifleShotSound(this IEntity obj, AudioClip value) => obj.SetValue(RifleShotSound, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AudioClip GetRifleDryShotSound(this IEntity obj) => obj.GetValue<AudioClip>(RifleDryShotSound);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetRifleDryShotSound(this IEntity obj, out AudioClip value) => obj.TryGetValue(RifleDryShotSound, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddRifleDryShotSound(this IEntity obj, AudioClip value) => obj.AddValue(RifleDryShotSound, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasRifleDryShotSound(this IEntity obj) => obj.HasValue(RifleDryShotSound);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelRifleDryShotSound(this IEntity obj) => obj.DelValue(RifleDryShotSound);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetRifleDryShotSound(this IEntity obj, AudioClip value) => obj.SetValue(RifleDryShotSound, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AudioClip GetPainSound(this IEntity obj) => obj.GetValue<AudioClip>(PainSound);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetPainSound(this IEntity obj, out AudioClip value) => obj.TryGetValue(PainSound, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddPainSound(this IEntity obj, AudioClip value) => obj.AddValue(PainSound, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasPainSound(this IEntity obj) => obj.HasValue(PainSound);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelPainSound(this IEntity obj) => obj.DelValue(PainSound);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetPainSound(this IEntity obj, AudioClip value) => obj.SetValue(PainSound, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AudioClip GetDeathSound(this IEntity obj) => obj.GetValue<AudioClip>(DeathSound);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetDeathSound(this IEntity obj, out AudioClip value) => obj.TryGetValue(DeathSound, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddDeathSound(this IEntity obj, AudioClip value) => obj.AddValue(DeathSound, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasDeathSound(this IEntity obj) => obj.HasValue(DeathSound);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelDeathSound(this IEntity obj) => obj.DelValue(DeathSound);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetDeathSound(this IEntity obj, AudioClip value) => obj.SetValue(DeathSound, value);
     }
 }

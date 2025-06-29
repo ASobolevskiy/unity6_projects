@@ -10,6 +10,7 @@ namespace Game.Core.Behaviours
         private ReactiveVariable<Vector3> _movementDirection;
         private ReactiveVariable<float> _movementSpeed;
         private ReactiveVariable<bool> _isMoving;
+        private AndExpression _canMove;
 
         public void Init(IEntity entity)
         {
@@ -17,10 +18,13 @@ namespace Game.Core.Behaviours
             _movementDirection = entity.GetMovementDirection();
             _movementSpeed = entity.GetMovementSpeed();
             _isMoving = entity.GetIsMoving();
+            _canMove = entity.GetCanMove();
         }
 
         public void OnUpdate(IEntity entity, float deltaTime)
         {
+            if (!_canMove.Invoke()) 
+                return;
             _isMoving.Value = _movementDirection.Value.sqrMagnitude > 0;
             _root.position += _movementDirection.Value * (_movementSpeed.Value * deltaTime);
         }

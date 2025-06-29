@@ -16,6 +16,7 @@ namespace Atomic.Entities
         public const int Hitpoints = 21; // ReactiveVariable<int>
         public const int IsDead = 22; // ReactiveVariable<bool>
         public const int TakeDamageAction = 23; // BaseEvent<int>
+        public const int TakeDamageEvent = 34; // IEvent
 
 
         ///Extensions
@@ -72,5 +73,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetTakeDamageAction(this IEntity obj, BaseEvent<int> value) => obj.SetValue(TakeDamageAction, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IEvent GetTakeDamageEvent(this IEntity obj) => obj.GetValue<IEvent>(TakeDamageEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetTakeDamageEvent(this IEntity obj, out IEvent value) => obj.TryGetValue(TakeDamageEvent, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddTakeDamageEvent(this IEntity obj, IEvent value) => obj.AddValue(TakeDamageEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasTakeDamageEvent(this IEntity obj) => obj.HasValue(TakeDamageEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelTakeDamageEvent(this IEntity obj) => obj.DelValue(TakeDamageEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetTakeDamageEvent(this IEntity obj, IEvent value) => obj.SetValue(TakeDamageEvent, value);
     }
 }

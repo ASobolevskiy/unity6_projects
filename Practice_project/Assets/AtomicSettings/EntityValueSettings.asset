@@ -34,6 +34,9 @@ MonoBehaviour:
     - id: 4
       name: IsMoving
       type: ReactiveVariable<bool>
+    - id: 32
+      name: CanMove
+      type: AndExpression
   - name: VisualAnimation
     indexes:
     - id: 5
@@ -77,6 +80,15 @@ MonoBehaviour:
     - id: 20
       name: CurrentAmmo
       type: ReactiveVariable<int>
+    - id: 28
+      name: DryShotEvent
+      type: IEvent
+    - id: 29
+      name: CanShoot
+      type: AndExpression
+    - id: 33
+      name: CanReplenishBullets
+      type: AndExpression
   - name: BulletMovement
     indexes:
     - id: 16
@@ -99,6 +111,9 @@ MonoBehaviour:
     - id: 23
       name: TakeDamageAction
       type: BaseEvent<int>
+    - id: 34
+      name: TakeDamageEvent
+      type: IEvent
   - name: PlayerSounds
     indexes:
     - id: 24
@@ -107,3 +122,28 @@ MonoBehaviour:
     - id: 25
       name: RifleShotSound
       type: AudioClip
+    - id: 27
+      name: RifleDryShotSound
+      type: AudioClip
+    - id: 36
+      name: PainSound
+      type: AudioClip
+    - id: 37
+      name: DeathSound
+      type: AudioClip
+  - name: PlayerParticleSystem
+    indexes:
+    - id: 26
+      name: BulletExplosionPSystem
+      type: ParticleSystem
+    - id: 35
+      name: PlayerTakeTamagePSystem
+      type: ParticleSystem
+  - name: Rotation
+    indexes:
+    - id: 30
+      name: Rotation
+      type: ReactiveVariable<Quaternion>
+    - id: 31
+      name: CanRotate
+      type: AndExpression

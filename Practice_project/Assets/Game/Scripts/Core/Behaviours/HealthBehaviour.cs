@@ -8,12 +8,14 @@ namespace Game.Core.Behaviours
         private ReactiveVariable<int> _hitPoints;
         private ReactiveVariable<bool> _isDead;
         private BaseEvent<int> _takeDamageAction;
+        private IEvent _takeDamageEvent;
 
         public void Init(IEntity entity)
         {
             _hitPoints = entity.GetHitpoints();
             _isDead = entity.GetIsDead();
             _takeDamageAction = entity.GetTakeDamageAction();
+            _takeDamageEvent = entity.GetTakeDamageEvent();
 
             _takeDamageAction.Subscribe(HandleTakeDamage);
         }
@@ -26,6 +28,10 @@ namespace Game.Core.Behaviours
             if (_hitPoints.Value <= 0)
             {
                 _isDead.Value = true;
+            }
+            else
+            {
+                _takeDamageEvent.Invoke();
             }
         }
 

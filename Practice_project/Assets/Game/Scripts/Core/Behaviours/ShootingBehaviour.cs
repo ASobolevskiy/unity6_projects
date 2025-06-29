@@ -10,12 +10,14 @@ namespace Game.Core.Behaviours
         private Transform _firePointTransform;
         private IEvent _shootAction;
         private IEvent _shootEvent;
+        private IEvent _dryShotEvent;
         private ReactiveVariable<float> _shootDelayTime;
         private ReactiveVariable<bool> _isShotDelaying;
         private ReactiveVariable<int> _maximumAmmo;
         private ReactiveVariable<float> _ammoReplenishTime;
         private ReactiveVariable<bool> _isAmmoReplenishing;
         private ReactiveVariable<int> _currentAmmo;
+        private AndExpression _canReplenishBullets;
 
         private float _delayTimer;
         private float _replenishTimer;
@@ -30,11 +32,13 @@ namespace Game.Core.Behaviours
             _ammoReplenishTime = entity.GetAmmoReplenishTime();
             _isAmmoReplenishing = entity.GetIsAmmoReplenishing();
             _currentAmmo = entity.GetCurrentAmmo();
+            _canReplenishBullets = entity.GetCanReplenishBullets();
             
             _shootAction = entity.GetShootAction();
             _shootAction.Subscribe(HandleShootAction);
 
             _shootEvent = entity.GetShootEvent();
+            _dryShotEvent = entity.GetDryShotEvent();
         }
 
         public void OnUpdate(IEntity entity, float deltaTime)
@@ -59,6 +63,11 @@ namespace Game.Core.Behaviours
 
         private void HandleAmmoReplenishing(float deltaTime)
         {
+            if (!_canReplenishBullets.Invoke())
+            {
+                return;
+            }
+
             if (!_isAmmoReplenishing.Value)
             {
                 return;
@@ -88,8 +97,14 @@ namespace Game.Core.Behaviours
 
         private void HandleShootAction()
         {
-            if (_isShotDelaying.Value || _currentAmmo.Value == 0)
+            if (_isShotDelaying.Value)
             {
+                return;
+            }
+
+            if (_currentAmmo.Value == 0)
+            {
+                _dryShotEvent.Invoke();
                 return;
             }
 

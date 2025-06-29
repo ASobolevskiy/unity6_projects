@@ -17,6 +17,7 @@ namespace Atomic.Entities
         public const int MovementSpeed = 2; // ReactiveVariable<float>
         public const int MovementDirection = 3; // ReactiveVariable<Vector3>
         public const int IsMoving = 4; // ReactiveVariable<bool>
+        public const int CanMove = 32; // AndExpression
 
 
         ///Extensions
@@ -91,5 +92,23 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetIsMoving(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsMoving, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AndExpression GetCanMove(this IEntity obj) => obj.GetValue<AndExpression>(CanMove);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetCanMove(this IEntity obj, out AndExpression value) => obj.TryGetValue(CanMove, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddCanMove(this IEntity obj, AndExpression value) => obj.AddValue(CanMove, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasCanMove(this IEntity obj) => obj.HasValue(CanMove);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelCanMove(this IEntity obj) => obj.DelValue(CanMove);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetCanMove(this IEntity obj, AndExpression value) => obj.SetValue(CanMove, value);
     }
 }
