@@ -373,7 +373,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 236932030}
     - target: {fileID: 4569969915017230172, guid: a76c89c6a539356478cffc6e1b88e8dc, type: 3}
+      propertyPath: _attackInstaller._damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569969915017230172, guid: a76c89c6a539356478cffc6e1b88e8dc, type: 3}
       propertyPath: _healthInstaller._hitPoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569969915017230172, guid: a76c89c6a539356478cffc6e1b88e8dc, type: 3}
+      propertyPath: _attackInstaller._attackCooldown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4569969915017230172, guid: a76c89c6a539356478cffc6e1b88e8dc, type: 3}

@@ -18,6 +18,7 @@ namespace Game.Visual.Animations.Installers
             entity.SetAnimationEventDispatcher(_dispatcher);
 
             entity.AddBehaviour(new MovementAnimationBehaviour());
+            entity.AddBehaviour(new EnemyAttackAnimationBehaviour());
         }
     }
 }

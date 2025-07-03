@@ -23,8 +23,12 @@ namespace Game.Core.Behaviours
 
         public void OnUpdate(IEntity entity, float deltaTime)
         {
-            if (!_canMove.Invoke()) 
+            if (!_canMove.Invoke())
+            {
+                _isMoving.Value = false;
                 return;
+            }
+
             _isMoving.Value = _movementDirection.Value.sqrMagnitude > 0;
             _root.position += _movementDirection.Value * (_movementSpeed.Value * deltaTime);
         }
