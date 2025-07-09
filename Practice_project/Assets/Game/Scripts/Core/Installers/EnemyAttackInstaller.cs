@@ -14,6 +14,16 @@ namespace Game.Core.Installers
 
         [SerializeField]
         private float _attackCooldown;
+
+        [SerializeField]
+        private float _attackDistance;
+
+        [SerializeField]
+        private Transform _attackPoint;
+
+        [SerializeField]
+        private LayerMask _targetLayers;
+        
         public void Install(IEntity entity)
         {
             entity.SetDamage(_damage);
@@ -22,6 +32,13 @@ namespace Game.Core.Installers
             entity.SetCanAttack(new AndExpression());
             entity.SetIsAttackDelaying(new ReactiveVariable<bool>());
             entity.SetIsInAttackRange(new ReactiveVariable<bool>());
+            entity.SetAttackDistance(_attackDistance);
+            entity.SetIsAttacking(new ReactiveVariable<bool>());
+            entity.SetAttackPoint(_attackPoint);
+            entity.SetHitEvent(new BaseEvent());
+            entity.SetHitAction(new BaseEvent());
+            entity.SetTargetLayer(_targetLayers);
+            entity.SetAttackFinished(new BaseEvent());
 
             entity.AddBehaviour(new AttackBehaviour());
         }

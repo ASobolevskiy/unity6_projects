@@ -19,6 +19,13 @@ namespace Atomic.Entities
         public const int Damage = 42; // ReactiveVariable<int>
         public const int IsAttackDelaying = 43; // ReactiveVariable<bool>
         public const int IsInAttackRange = 44; // ReactiveVariable<bool>
+        public const int AttackDistance = 45; // ReactiveVariable<float>
+        public const int IsAttacking = 46; // ReactiveVariable<bool>
+        public const int AttackPoint = 47; // ReactiveVariable<Transform>
+        public const int HitEvent = 48; // IEvent
+        public const int HitAction = 49; // IEvent
+        public const int TargetLayer = 50; // ReactiveVariable<LayerMask>
+        public const int AttackFinished = 52; // IEvent
 
 
         ///Extensions
@@ -129,5 +136,131 @@ namespace Atomic.Entities
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetIsInAttackRange(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsInAttackRange, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<float> GetAttackDistance(this IEntity obj) => obj.GetValue<ReactiveVariable<float>>(AttackDistance);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetAttackDistance(this IEntity obj, out ReactiveVariable<float> value) => obj.TryGetValue(AttackDistance, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddAttackDistance(this IEntity obj, ReactiveVariable<float> value) => obj.AddValue(AttackDistance, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasAttackDistance(this IEntity obj) => obj.HasValue(AttackDistance);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelAttackDistance(this IEntity obj) => obj.DelValue(AttackDistance);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetAttackDistance(this IEntity obj, ReactiveVariable<float> value) => obj.SetValue(AttackDistance, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<bool> GetIsAttacking(this IEntity obj) => obj.GetValue<ReactiveVariable<bool>>(IsAttacking);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetIsAttacking(this IEntity obj, out ReactiveVariable<bool> value) => obj.TryGetValue(IsAttacking, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddIsAttacking(this IEntity obj, ReactiveVariable<bool> value) => obj.AddValue(IsAttacking, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasIsAttacking(this IEntity obj) => obj.HasValue(IsAttacking);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelIsAttacking(this IEntity obj) => obj.DelValue(IsAttacking);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetIsAttacking(this IEntity obj, ReactiveVariable<bool> value) => obj.SetValue(IsAttacking, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<Transform> GetAttackPoint(this IEntity obj) => obj.GetValue<ReactiveVariable<Transform>>(AttackPoint);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetAttackPoint(this IEntity obj, out ReactiveVariable<Transform> value) => obj.TryGetValue(AttackPoint, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddAttackPoint(this IEntity obj, ReactiveVariable<Transform> value) => obj.AddValue(AttackPoint, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasAttackPoint(this IEntity obj) => obj.HasValue(AttackPoint);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelAttackPoint(this IEntity obj) => obj.DelValue(AttackPoint);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetAttackPoint(this IEntity obj, ReactiveVariable<Transform> value) => obj.SetValue(AttackPoint, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IEvent GetHitEvent(this IEntity obj) => obj.GetValue<IEvent>(HitEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetHitEvent(this IEntity obj, out IEvent value) => obj.TryGetValue(HitEvent, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddHitEvent(this IEntity obj, IEvent value) => obj.AddValue(HitEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasHitEvent(this IEntity obj) => obj.HasValue(HitEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelHitEvent(this IEntity obj) => obj.DelValue(HitEvent);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetHitEvent(this IEntity obj, IEvent value) => obj.SetValue(HitEvent, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IEvent GetHitAction(this IEntity obj) => obj.GetValue<IEvent>(HitAction);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetHitAction(this IEntity obj, out IEvent value) => obj.TryGetValue(HitAction, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddHitAction(this IEntity obj, IEvent value) => obj.AddValue(HitAction, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasHitAction(this IEntity obj) => obj.HasValue(HitAction);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelHitAction(this IEntity obj) => obj.DelValue(HitAction);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetHitAction(this IEntity obj, IEvent value) => obj.SetValue(HitAction, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ReactiveVariable<LayerMask> GetTargetLayer(this IEntity obj) => obj.GetValue<ReactiveVariable<LayerMask>>(TargetLayer);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetTargetLayer(this IEntity obj, out ReactiveVariable<LayerMask> value) => obj.TryGetValue(TargetLayer, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddTargetLayer(this IEntity obj, ReactiveVariable<LayerMask> value) => obj.AddValue(TargetLayer, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasTargetLayer(this IEntity obj) => obj.HasValue(TargetLayer);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelTargetLayer(this IEntity obj) => obj.DelValue(TargetLayer);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetTargetLayer(this IEntity obj, ReactiveVariable<LayerMask> value) => obj.SetValue(TargetLayer, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static IEvent GetAttackFinished(this IEntity obj) => obj.GetValue<IEvent>(AttackFinished);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryGetAttackFinished(this IEntity obj, out IEvent value) => obj.TryGetValue(AttackFinished, out value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool AddAttackFinished(this IEntity obj, IEvent value) => obj.AddValue(AttackFinished, value);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool HasAttackFinished(this IEntity obj) => obj.HasValue(AttackFinished);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool DelAttackFinished(this IEntity obj) => obj.DelValue(AttackFinished);
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void SetAttackFinished(this IEntity obj, IEvent value) => obj.SetValue(AttackFinished, value);
     }
 }

@@ -96806,8 +96806,8 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: ReceiveString
-    data: start_attack
+    functionName: ReceiveEvent
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -96819,23 +96819,23 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.46666667
-    functionName: ReceiveString
-    data: attack
+  - time: 0.43333334
+    functionName: ReceiveEvent
+    data: checkHits
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.76666665
-    functionName: ReceiveString
-    data: end_attack_trail
+    functionName: ReceiveEvent
+    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.3666667
-    functionName: ReceiveString
-    data: end_attack
+  - time: 1.1666666
+    functionName: ReceiveEvent
+    data: attackFinished
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

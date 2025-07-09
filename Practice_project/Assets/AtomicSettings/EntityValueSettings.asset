@@ -172,3 +172,29 @@ MonoBehaviour:
     - id: 44
       name: IsInAttackRange
       type: ReactiveVariable<bool>
+    - id: 45
+      name: AttackDistance
+      type: ReactiveVariable<float>
+    - id: 46
+      name: IsAttacking
+      type: ReactiveVariable<bool>
+    - id: 47
+      name: AttackPoint
+      type: ReactiveVariable<Transform>
+    - id: 48
+      name: HitEvent
+      type: IEvent
+    - id: 49
+      name: HitAction
+      type: IEvent
+    - id: 50
+      name: TargetLayer
+      type: ReactiveVariable<LayerMask>
+    - id: 52
+      name: AttackFinished
+      type: IEvent
+  - name: ZombieSounds
+    indexes:
+    - id: 51
+      name: ZombieHitSound
+      type: AudioClip
