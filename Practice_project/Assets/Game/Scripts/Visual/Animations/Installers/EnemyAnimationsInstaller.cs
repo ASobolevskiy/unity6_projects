@@ -19,6 +19,7 @@ namespace Game.Visual.Animations.Installers
 
             entity.AddBehaviour(new MovementAnimationBehaviour());
             entity.AddBehaviour(new EnemyAttackAnimationBehaviour());
+            entity.AddBehaviour(new EnemyDeathAnimationBehaviour());
         }
     }
 }

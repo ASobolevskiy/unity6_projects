@@ -19,6 +19,7 @@ MonoBehaviour:
   imports:
   - Atomic.Elements
   - Game.Utils
+  - Game.Core.Trigger
   categories:
   - name: Movement
     indexes:
@@ -114,6 +115,9 @@ MonoBehaviour:
     - id: 34
       name: TakeDamageEvent
       type: IEvent
+    - id: 54
+      name: EnemyDeadEvent
+      type: IEvent
   - name: PlayerSounds
     indexes:
     - id: 24
@@ -198,3 +202,8 @@ MonoBehaviour:
     - id: 51
       name: ZombieHitSound
       type: AudioClip
+  - name: Trigger
+    indexes:
+    - id: 53
+      name: TriggerReceiver
+      type: TriggerEventReceiver

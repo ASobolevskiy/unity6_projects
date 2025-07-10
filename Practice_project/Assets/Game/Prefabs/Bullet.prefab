@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 64033254150928393}
   - component: {fileID: 719627403767661932}
   - component: {fileID: 8810028047165944025}
-  - component: {fileID: 4353941570263355817}
+  - component: {fileID: 8478703437693941789}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -50,7 +50,7 @@ MonoBehaviour:
   autoRefresh: 1
   installOnAwake: 1
   installPipeline:
-  - {fileID: 4353941570263355817}
+  - {fileID: 8478703437693941789}
   onInstalled:
     m_PersistentCalls:
       m_Calls: []
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603a745f80e14d1d8cd57cf70a50187f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4353941570263355817
+--- !u!114 &8478703437693941789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,11 +75,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4808687894581635685}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e7b893fa8294a80b420ed0ef72254ba, type: 3}
+  m_Script: {fileID: 11500000, guid: f83bfc20466a46bfb35d55538676f02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletSpeed: 15
-  _transform: {fileID: 64033254150928393}
+  _bulletMovementInstaller:
+    _bulletSpeed: 10
+    _transform: {fileID: 64033254150928393}
+  _bulletHitInstaller:
+    _triggerReceiver: {fileID: 2033520328531468928}
 --- !u!1 &6556491617490902555
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +95,7 @@ GameObject:
   - component: {fileID: 6239968266117624093}
   - component: {fileID: 8577949578761551484}
   - component: {fileID: 4022674120860703090}
+  - component: {fileID: 2033520328531468928}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -182,9 +186,21 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2033520328531468928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6556491617490902555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232e982874594bdeb17bcff679858b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,3 +1,4 @@
+using Atomic.Elements;
 using Atomic.Entities;
 using Game.Core.Behaviours;
 using UnityEngine;
@@ -28,6 +29,8 @@ namespace Game.Core.Installers
             _rotationInstaller.Install(entity);
             _healthInstaller.Install(entity);
             _attackInstaller.Install(entity);
+            
+            entity.SetEnemyDeadEvent(new BaseEvent());
 
             entity.AddBehaviour(new TargetLookUpBehaviour());
             entity.AddBehaviour(new EnemyConditionsBehaviour());
