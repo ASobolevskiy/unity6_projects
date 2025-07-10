@@ -1,5 +1,8 @@
+using Atomic.Contexts;
 using Atomic.Elements;
 using Atomic.Entities;
+using Game.Context;
+using Game.Utils;
 using UnityEngine;
 
 namespace Game.Core.Behaviours
@@ -108,12 +111,15 @@ namespace Game.Core.Behaviours
                 return;
             }
 
-            var bullet = Object.Instantiate(_bulletPrefab,
-                _firePointTransform.position,
-                _firePointTransform.rotation);
+            var position = _firePointTransform.position;
             var direction = _firePointTransform.forward;
             direction.y = 0;
-            bullet.GetBulletDirection().Value = direction;
+            GameContext.Instance.GetBulletSpawRequest().Invoke(new BulletSpawnArguments(position, direction));
+            // var bullet = Object.Instantiate(_bulletPrefab,
+            //     _firePointTransform.position,
+            //     _firePointTransform.rotation);
+            
+            // bullet.GetBulletDirection().Value = direction;
 
             _shootEvent.Invoke();
             
