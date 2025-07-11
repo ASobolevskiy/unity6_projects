@@ -13,6 +13,7 @@ namespace Game.Core.Installers
         
         public override void Install(IEntity entity)
         {
+            entity.AddBulletTag();
             _bulletMovementInstaller.Install(entity);
             _bulletHitInstaller.Install(entity);
         }

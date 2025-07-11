@@ -12,14 +12,15 @@ namespace Game.Systems.Bullet
         public void Enable(IContext context)
         {
             _data = context.GetBulletSystemData();
-            _bulletDestroyRequest = context.GetBulletDestroyRequest();
+            _bulletDestroyRequest = context.GetEntityDestroyRequest();
 
             _bulletDestroyRequest.Subscribe(HandleBulletDestroyRequested);
         }
 
         private void HandleBulletDestroyRequested(IEntity entity)
         {
-            _data.BulletPool.ReturnToPool(entity);
+            if(entity.HasBulletTag())
+                _data.BulletPool.ReturnToPool(entity);
         }
 
         public void Disable(IContext context)

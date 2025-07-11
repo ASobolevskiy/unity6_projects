@@ -9,6 +9,7 @@ using Game.Systems.Bullet;
 using Game.Utils;
 using Atomic.Elements;
 using Atomic.Entities;
+using Game.Systems.Enemies;
 
 namespace Atomic.Contexts
 {
@@ -18,7 +19,8 @@ namespace Atomic.Contexts
 		public const int WorldTransform = 1; // Transform
 		public const int BulletSystemData = 2; // BulletSystemData
 		public const int BulletSpawRequest = 3; // BaseEvent<BulletSpawnArguments>
-		public const int BulletDestroyRequest = 4; // BaseEvent<IEntity>
+		public const int EntityDestroyRequest = 4; // BaseEvent<IEntity>
+		public const int EnemySystemData = 5; // EnemySystemData
 
 
 		///Extensions
@@ -77,21 +79,39 @@ namespace Atomic.Contexts
 		public static bool HasBulletSpawRequest(this IContext obj) => obj.HasValue(BulletSpawRequest);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static BaseEvent<IEntity> GetBulletDestroyRequest(this IContext obj) => obj.ResolveValue<BaseEvent<IEntity>>(BulletDestroyRequest);
+		public static BaseEvent<IEntity> GetEntityDestroyRequest(this IContext obj) => obj.ResolveValue<BaseEvent<IEntity>>(EntityDestroyRequest);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool TryGetBulletDestroyRequest(this IContext obj, out BaseEvent<IEntity> value) => obj.TryResolveValue(BulletDestroyRequest, out value);
+		public static bool TryGetEntityDestroyRequest(this IContext obj, out BaseEvent<IEntity> value) => obj.TryResolveValue(EntityDestroyRequest, out value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool AddBulletDestroyRequest(this IContext obj, BaseEvent<IEntity> value) => obj.AddValue(BulletDestroyRequest, value);
+		public static bool AddEntityDestroyRequest(this IContext obj, BaseEvent<IEntity> value) => obj.AddValue(EntityDestroyRequest, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool DelBulletDestroyRequest(this IContext obj) => obj.DelValue(BulletDestroyRequest);
+		public static bool DelEntityDestroyRequest(this IContext obj) => obj.DelValue(EntityDestroyRequest);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static void SetBulletDestroyRequest(this IContext obj, BaseEvent<IEntity> value) => obj.SetValue(BulletDestroyRequest, value);
+		public static void SetEntityDestroyRequest(this IContext obj, BaseEvent<IEntity> value) => obj.SetValue(EntityDestroyRequest, value);
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool HasBulletDestroyRequest(this IContext obj) => obj.HasValue(BulletDestroyRequest);
+		public static bool HasEntityDestroyRequest(this IContext obj) => obj.HasValue(EntityDestroyRequest);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static EnemySystemData GetEnemySystemData(this IContext obj) => obj.ResolveValue<EnemySystemData>(EnemySystemData);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool TryGetEnemySystemData(this IContext obj, out EnemySystemData value) => obj.TryResolveValue(EnemySystemData, out value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool AddEnemySystemData(this IContext obj, EnemySystemData value) => obj.AddValue(EnemySystemData, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool DelEnemySystemData(this IContext obj) => obj.DelValue(EnemySystemData);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static void SetEnemySystemData(this IContext obj, EnemySystemData value) => obj.SetValue(EnemySystemData, value);
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public static bool HasEnemySystemData(this IContext obj) => obj.HasValue(EnemySystemData);
     }
 }

@@ -1,5 +1,7 @@
+using Atomic.Contexts;
 using Atomic.Elements;
 using Atomic.Entities;
+using Game.Context;
 using Game.Utils;
 using UnityEngine;
 
@@ -12,13 +14,14 @@ namespace Game.Visual.Animations.Behaviours
         
         private Animator _animator;
         private AnimationEventDispatcher _animationEventDispatcher;
-        private IEvent _enemyDead;
         private ReactiveVariable<bool> _isDead;
+        private IEntity _entity;
+        
         public void Init(IEntity entity)
         {
+            _entity = entity;
             _animator = entity.GetAnimator();
             _animationEventDispatcher = entity.GetAnimationEventDispatcher();
-            _enemyDead = entity.GetEnemyDeadEvent();
             _isDead = entity.GetIsDead();
             
             _animator.SetBool(s_isDead, _isDead.Value);
@@ -30,7 +33,7 @@ namespace Game.Visual.Animations.Behaviours
         private void OnAnimationEventReceived(string tag)
         {
             if(tag.Equals(TAG_DEAD))
-                _enemyDead?.Invoke();
+                GameContext.Instance.GetEntityDestroyRequest()?.Invoke(_entity);
         }
 
         private void HandleIsDeadChanged(bool isDead)

@@ -26,7 +26,7 @@ namespace Game.Core.Behaviours
             if (!hittedEntity.TryGetIsDead(out var isDead) || isDead.Value) 
                 return;
             hittedEntity.GetTakeDamageAction().Invoke(1);
-            GameContext.Instance.GetBulletDestroyRequest().Invoke(_entity);
+            GameContext.Instance.GetEntityDestroyRequest().Invoke(_entity);
         }
 
         public void Dispose(IEntity entity)

@@ -5,6 +5,7 @@ using Atomic.Entities;
 using Game.Pool;
 using Game.Utils;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Systems.Bullet
 {
@@ -13,12 +14,9 @@ namespace Game.Systems.Bullet
     {
         [SerializeField]
         private SceneEntity _bulletPrefab;
-
+        
         [SerializeField]
-        private Transform _poolTransform;
-
-        [SerializeField]
-        private int _initialBulletCount;
+        private Transform _bulletPoolTransform;
         
         public void Install(IContext context)
         {
@@ -26,12 +24,11 @@ namespace Game.Systems.Bullet
 
             var bulletSystemData = new BulletSystemData()
             {
-                BulletPool = new SceneEntityPool(_bulletPrefab, worldTransform, _poolTransform, _initialBulletCount)
+                BulletPool = new SceneEntityPool(_bulletPrefab, worldTransform, _bulletPoolTransform)
             };
 
             context.AddBulletSystemData(bulletSystemData);
             context.AddBulletSpawRequest(new BaseEvent<BulletSpawnArguments>());
-            context.AddBulletDestroyRequest(new BaseEvent<IEntity>());
 
             context.AddSystem(new BulletSpawnSystem());
             context.AddSystem(new BulletDestroySystem());

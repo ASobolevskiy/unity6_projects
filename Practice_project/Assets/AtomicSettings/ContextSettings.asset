@@ -23,6 +23,7 @@ MonoBehaviour:
     - Game.Utils
     - Atomic.Elements
     - Atomic.Entities
+    - Game.Systems.Enemies
     items:
     - id: 1
       name: WorldTransform
@@ -34,5 +35,8 @@ MonoBehaviour:
       name: BulletSpawRequest
       type: BaseEvent<BulletSpawnArguments>
     - id: 4
-      name: BulletDestroyRequest
+      name: EntityDestroyRequest
       type: BaseEvent<IEntity>
+    - id: 5
+      name: EnemySystemData
+      type: EnemySystemData
