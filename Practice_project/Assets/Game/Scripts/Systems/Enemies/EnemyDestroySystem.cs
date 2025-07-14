@@ -1,6 +1,7 @@
 using Atomic.Contexts;
 using Atomic.Elements;
 using Atomic.Entities;
+using Game.Context;
 
 namespace Game.Systems.Enemies
 {
@@ -20,7 +21,7 @@ namespace Game.Systems.Enemies
         {
             if (!entity.HasEnemyTag()) 
                 return;
-            
+            GameContext.Instance.GetEnemyKilledCount().Value++;
             entity.GetIsDead().Value = false;
             entity.GetIsAttacking().Value = false;
             entity.GetIsMoving().Value = false;

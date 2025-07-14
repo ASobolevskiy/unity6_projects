@@ -202,8 +202,16 @@ MonoBehaviour:
     - id: 51
       name: ZombieHitSound
       type: AudioClip
+    - id: 56
+      name: ZombieDeathSound
+      type: AudioClip
   - name: Trigger
     indexes:
     - id: 53
       name: TriggerReceiver
       type: TriggerEventReceiver
+  - name: ZombieParticleSystem
+    indexes:
+    - id: 55
+      name: ZombieTakeDamagePSystem
+      type: ParticleSystem

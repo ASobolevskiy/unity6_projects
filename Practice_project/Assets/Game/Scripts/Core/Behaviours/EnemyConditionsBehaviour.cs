@@ -1,5 +1,7 @@
+using Atomic.Contexts;
 using Atomic.Elements;
 using Atomic.Entities;
+using Game.Context;
 
 namespace Game.Core.Behaviours
 {
@@ -14,14 +16,18 @@ namespace Game.Core.Behaviours
             var isInAttackRange = entity.GetIsInAttackRange();
             var isAttacking = entity.GetIsAttacking();
             var isDead = entity.GetIsDead();
+            var isGameOver = GameContext.Instance.GetIsGameOver();
             
             canMove.Append(() => !isInAttackRange.Value);
             canMove.Append(() => !isAttacking.Value);
             canMove.Append(() => !isDead.Value);
+            canMove.Append(() => !isGameOver.Value);
             canAttack.Append(() => isInAttackRange.Value);
             canAttack.Append(() => !isAttackDelaying.Value);
             canAttack.Append(() => !isDead.Value);
+            canAttack.Append(() => !isGameOver.Value);
             canRotate.Append(() => !isDead.Value);
+            canRotate.Append(() => !isGameOver.Value);
         }
     }
 }

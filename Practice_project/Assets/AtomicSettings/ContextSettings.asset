@@ -16,7 +16,7 @@ MonoBehaviour:
   categories:
   - Name: GameContext
     Namespace: Atomic.Contexts
-    DirectoryPath: Assets/Codegen
+    DirectoryPath: Assets/Game/AtomicGeneratedCode/Contexts
     ClassSuffix: API
     Imports:
     - Game.Systems.Bullet
@@ -24,6 +24,7 @@ MonoBehaviour:
     - Atomic.Elements
     - Atomic.Entities
     - Game.Systems.Enemies
+    - System.Collections.Generic
     items:
     - id: 1
       name: WorldTransform
@@ -40,3 +41,44 @@ MonoBehaviour:
     - id: 5
       name: EnemySystemData
       type: EnemySystemData
+    - id: 6
+      name: MinimumHorizontal
+      type: ReactiveVariable<float>
+    - id: 7
+      name: MaximumHorizontal
+      type: ReactiveVariable<float>
+    - id: 8
+      name: MinimumVertical
+      type: ReactiveVariable<float>
+    - id: 9
+      name: MaximumVertical
+      type: ReactiveVariable<float>
+    - id: 11
+      name: PlayerMap
+      type: Dictionary<string, IContext>
+    - id: 15
+      name: EnemyKilledCount
+      type: ReactiveVariable<int>
+    - id: 16
+      name: IsGameOver
+      type: ReactiveVariable<bool>
+  - Name: PlayerContext
+    Namespace: Atomic.Contexts
+    DirectoryPath: Assets/Game/AtomicGeneratedCode/Contexts
+    ClassSuffix: API
+    Imports:
+    - Atomic.Elements
+    - Atomic.Entities
+    items:
+    - id: 10
+      name: Player
+      type: Const<IEntity>
+    - id: 12
+      name: MaxBullets
+      type: ReactiveVariable<int>
+    - id: 13
+      name: CurrentBullets
+      type: ReactiveVariable<int>
+    - id: 14
+      name: Hitpoints
+      type: ReactiveVariable<int>

@@ -1,5 +1,9 @@
+using Atomic.Contexts;
 using Atomic.Elements;
 using Atomic.Entities;
+using Game.Context;
+using Game.Utils;
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 
 namespace Game.Core.Behaviours
@@ -30,7 +34,10 @@ namespace Game.Core.Behaviours
             }
 
             _isMoving.Value = _movementDirection.Value.sqrMagnitude > 0;
-            _root.position += _movementDirection.Value * (_movementSpeed.Value * deltaTime);
+
+            var boundsHelper = new BoundsHelper();
+            var newPosition = _root.position + _movementDirection.Value.normalized * (_movementSpeed.Value * deltaTime);
+            _root.position = boundsHelper.EnsureStayInBounds(newPosition);
         }
     }
 }

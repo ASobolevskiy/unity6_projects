@@ -1,11 +1,11 @@
 using Atomic.Contexts;
 using Atomic.Entities;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Game.Context
 {
-    public class GameContext : SingletonSceneContext<GameContext>
+    public sealed class GameContext : SingletonSceneContext<GameContext>
     {
-        
     }
 }

@@ -9,17 +9,25 @@ namespace Game.Systems.Enemies
     {
         private Cycle _spawnCycle;
         private EnemySystemData _data;
+        private ReactiveVariable<bool> _isGameOver;
         
         public void Init(IContext context)
         {
             _data = context.GetEnemySystemData();
             _spawnCycle = _data.SpawnCycle;
+            _isGameOver = context.GetIsGameOver();
         }
         
         public void Enable(IContext context)
         {
             _spawnCycle.Start();
             _spawnCycle.OnCycle += Spawn;
+            _isGameOver.Subscribe(HandleGameOver);
+        }
+
+        private void HandleGameOver(bool obj)
+        {
+            StopSpawning();
         }
 
         public void Update(IContext context, float deltaTime)
@@ -29,10 +37,16 @@ namespace Game.Systems.Enemies
 
         public void Disable(IContext context)
         {
+            StopSpawning();
+            _isGameOver.Unsubscribe(HandleGameOver);
+        }
+
+        private void StopSpawning()
+        {
             _spawnCycle.Stop();
             _spawnCycle.OnCycle -= Spawn;
         }
-        
+
         private void Spawn()
         {
             var enemy = _data.EnemyPool.TakeFromPool();
@@ -41,7 +55,6 @@ namespace Game.Systems.Enemies
             enemy.SetTarget(_data.Target.transform);
             enemy.GetIsDead().Value = false;
             enemy.GetIsAttacking().Value = false;
-            Debug.Log($"Zombie spawned at {spawnPosition.name}");
         }
     }
 }

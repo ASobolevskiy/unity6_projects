@@ -1,7 +1,8 @@
 using System;
+using Atomic.Contexts;
 using Atomic.Elements;
-using Atomic.Entities;
 using Atomic.UI;
+using Game.Context;
 using TMPro;
 using UnityEngine;
 
@@ -11,9 +12,6 @@ namespace Game.UI.Presenters
     public sealed class AmmoPresenter : IViewInit, IViewEnable, IViewDisable
     {
         [SerializeField]
-        private SceneEntity _character;
-
-        [SerializeField]
         private TMP_Text _ammoText;
 
         private ReactiveVariable<int> _maxAmmo;
@@ -21,8 +19,10 @@ namespace Game.UI.Presenters
         
         public void Init()
         {
-            _maxAmmo = _character.GetMaximumAmmo();
-            _currentAmmo = _character.GetCurrentAmmo();
+            var playerMap = GameContext.Instance.GetPlayerMap();
+            var playerContext = playerMap["Player"];
+            _maxAmmo = playerContext.GetMaxBullets();
+            _currentAmmo = playerContext.GetCurrentBullets();
         }
 
         public void Enable()
