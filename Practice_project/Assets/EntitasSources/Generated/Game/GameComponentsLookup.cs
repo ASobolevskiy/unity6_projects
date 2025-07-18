@@ -8,15 +8,30 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
+    public const int Movable = 0;
+    public const int MoveDirection = 1;
+    public const int MoveSpeed = 2;
+    public const int Position = 3;
+    public const int SceneView = 4;
+    public const int Unit = 5;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 6;
 
     public static readonly string[] componentNames = {
-
+        "Movable",
+        "MoveDirection",
+        "MoveSpeed",
+        "Position",
+        "SceneView",
+        "Unit"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(MovableComponent),
+        typeof(MoveDirectionComponent),
+        typeof(MoveSpeedComponent),
+        typeof(PositionComponent),
+        typeof(SceneViewComponent),
+        typeof(UnitComponent)
     };
 }
