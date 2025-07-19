@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Entitas;
 using Entitas.Unity;
+using Reflex.Attributes;
 using UnityEngine;
 
 namespace Game.Systems.ReactiveSystems
@@ -9,12 +10,13 @@ namespace Game.Systems.ReactiveSystems
     {
         private readonly Transform _viewContainer = new GameObject("Game Views").transform;
         private readonly GameContext _context;
-        private GameObject _go;
         
-        public AddViewSystem(Contexts contexts, GameObject go = null) : base(contexts.game)
+        [Inject]
+        private GameObject _go;
+         
+        public AddViewSystem(Contexts contexts) : base(contexts.game)
         {
             _context = contexts.game;
-            _go = go;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -37,6 +39,7 @@ namespace Game.Systems.ReactiveSystems
                     _go.transform.SetParent(_viewContainer, false);
                 }
                 entity.AddSceneView(_go);
+                entity.ReplacePosition(_go.transform.position);
                 _go.Link(entity);
             }
         }

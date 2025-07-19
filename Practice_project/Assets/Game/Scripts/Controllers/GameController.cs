@@ -1,5 +1,9 @@
+using System;
 using Game.Systems;
 using Game.Systems.Features;
+using Reflex.Core;
+using Reflex.Extensions;
+using Reflex.Injectors;
 using UnityEngine;
 using ESystems = Entitas.Systems;
 
@@ -7,13 +11,17 @@ namespace Game.Controllers
 {
     public class GameController : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject _unit;
-
         private ESystems _systems;
+        private Container _container;
+        
         private void Start()
         {
+            _container = gameObject.scene.GetSceneContainer();
             var contexts = Contexts.sharedInstance;
+            var extraInstallingScope = new ExtraInstallerScope(builder =>
+            {
+                builder.AddSingleton(contexts);
+            });
             _systems = CreateSystems(contexts);
             _systems.Initialize();
         }
@@ -26,10 +34,14 @@ namespace Game.Controllers
 
         private ESystems CreateSystems(Contexts contexts)
         {
+            var createEntitySystem = new CreateEntitySystem(contexts);
+            AttributeInjector.Inject(createEntitySystem, _container);
             return new Feature("Systems")
-                .Add(new CreateEntitySystem(contexts))
+                .Add(createEntitySystem)
                 .Add(new MovementSystems(contexts))
-                .Add(new ViewSystems(contexts, _unit));
+                .Add(new ShootSystems(contexts))
+                .Add(new SpawnRequestSystem(contexts))
+                .Add(new ViewSystems(contexts, _container));
         }
     }
 }

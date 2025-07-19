@@ -8,30 +8,45 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Movable = 0;
-    public const int MoveDirection = 1;
-    public const int MoveSpeed = 2;
-    public const int Position = 3;
-    public const int SceneView = 4;
-    public const int Unit = 5;
+    public const int CanShoot = 0;
+    public const int CanShootFromKeyboard = 1;
+    public const int KeyboardMovable = 2;
+    public const int Movable = 3;
+    public const int MoveDirection = 4;
+    public const int MoveSpeed = 5;
+    public const int Position = 6;
+    public const int SceneView = 7;
+    public const int ShootRequest = 8;
+    public const int Unit = 9;
+    public const int Weapon = 10;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
+        "CanShoot",
+        "CanShootFromKeyboard",
+        "KeyboardMovable",
         "Movable",
         "MoveDirection",
         "MoveSpeed",
         "Position",
         "SceneView",
-        "Unit"
+        "ShootRequest",
+        "Unit",
+        "Weapon"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(CanShoot),
+        typeof(CanShootFromKeyboard),
+        typeof(KeyboardMovableComponent),
         typeof(MovableComponent),
         typeof(MoveDirectionComponent),
         typeof(MoveSpeedComponent),
         typeof(PositionComponent),
         typeof(SceneViewComponent),
-        typeof(UnitComponent)
+        typeof(ShootRequest),
+        typeof(UnitComponent),
+        typeof(WeaponComponent)
     };
 }
