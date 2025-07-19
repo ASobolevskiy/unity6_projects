@@ -164,6 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94bf11bf2c2942ba8e03ce5b0296279d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _configsInstaller:
+    _redBaseConfig: {fileID: 11400000, guid: 2909dc810057bc444a09026bd3615c0d, type: 2}
+    _blueBaseConfig: {fileID: 11400000, guid: 61212b653c81493489a8d79baa540630, type: 2}
 --- !u!114 &926055
 MonoBehaviour:
   m_ObjectHideFlags: 0
