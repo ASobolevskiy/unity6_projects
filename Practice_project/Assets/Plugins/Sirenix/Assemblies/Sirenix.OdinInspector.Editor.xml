@@ -8290,7 +8290,7 @@
              <code>
              public class SomeWindow : OdinEditorWindow
              {
-                 [MenuItem("My Game/Some Window")]
+                 [MenuItem("My LectureExample_Entitas/Some Window")]
                  private static void OpenWindow()
                  {
                      GetWindow&lt;SomeWindow&gt;().Show();
@@ -8308,7 +8308,7 @@
              <code>
              public class DrawSomeSingletonInAnEditorWindow : OdinEditorWindow
              {
-                 [MenuItem("My Game/Some Window")]
+                 [MenuItem("My LectureExample_Entitas/Some Window")]
                  private static void OpenWindow()
                  {
                      GetWindow&lt;DrawSomeSingletonInAnEditorWindow&gt;().Show();

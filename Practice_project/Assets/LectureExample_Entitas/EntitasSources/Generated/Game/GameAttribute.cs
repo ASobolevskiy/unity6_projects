@@ -8,6 +8,6 @@
 //------------------------------------------------------------------------------
 public sealed class GameAttribute : Entitas.CodeGeneration.Attributes.ContextAttribute {
 
-    public GameAttribute() : base("Game") {
+    public GameAttribute() : base("LectureExample_Entitas") {
     }
 }

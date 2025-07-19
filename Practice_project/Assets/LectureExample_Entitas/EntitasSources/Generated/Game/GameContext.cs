@@ -13,7 +13,7 @@ public sealed partial class GameContext : Entitas.Context<GameEntity> {
             GameComponentsLookup.TotalComponents,
             0,
             new Entitas.ContextInfo(
-                "Game",
+                "LectureExample_Entitas",
                 GameComponentsLookup.componentNames,
                 GameComponentsLookup.componentTypes
             ),

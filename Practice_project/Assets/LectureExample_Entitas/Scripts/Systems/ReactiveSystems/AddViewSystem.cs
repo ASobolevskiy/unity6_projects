@@ -8,7 +8,7 @@ namespace Game.Systems.ReactiveSystems
 {
     public sealed class AddViewSystem : ReactiveSystem<GameEntity>
     {
-        private readonly Transform _viewContainer = new GameObject("Game Views").transform;
+        private readonly Transform _viewContainer = new GameObject("LectureExample_Entitas Views").transform;
         private readonly GameContext _context;
         
         [Inject]
@@ -35,7 +35,7 @@ namespace Game.Systems.ReactiveSystems
             {
                 if (_go == null)
                 {
-                    _go = new GameObject("Game View");
+                    _go = new GameObject("LectureExample_Entitas View");
                     _go.transform.SetParent(_viewContainer, false);
                 }
                 entity.AddSceneView(_go);
