@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Blue base config
   m_EditorClassIdentifier: Assembly-CSharp:Game.Configs:BlueBaseConfig
-  _hitPoints: 20
+  _hitPoints: 100
   _team: 2
   _archerPrefab: {fileID: 5916317172135223309, guid: 2edb3dcb9e85f4750b5bc0c0cac3d77f, type: 3}
   _swordsmanPrefab: {fileID: 5960816678197971978, guid: a0b483d275c778747b873ba2c54a2ef0, type: 3}

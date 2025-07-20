@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ac4f0409de48f6a2907ed0df434e4a, type: 3}
   m_Name: Archer config
   m_EditorClassIdentifier: 
-  _hitPoints: 0
-  _moveSpeed: 0
-  _arrowPrefab: {fileID: 0}
+  _hitPoints: 10
+  _moveSpeed: 3
+  _arrowPrefab: {fileID: 9043377457429840341, guid: 330cc5186b55f814cb161a6963f3a81f, type: 3}
