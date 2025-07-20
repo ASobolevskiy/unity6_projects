@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Entitas;
+using Entitas.Unity;
+using Entitas.VisualDebugging.Unity;
 
 namespace Game.Systems
 {
@@ -8,6 +10,7 @@ namespace Game.Systems
     {
         public RemoveDeadOrDestroyedEntitiesSystem(IContext<GameEntity> context) : base(context)
         {
+            
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -24,6 +27,12 @@ namespace Game.Systems
         {
             foreach (var entity in entities)
             {
+                if (entity.hasSceneView)
+                {
+                    var go = entity.sceneView.Value;
+                    go.Unlink();
+                    go.DestroyGameObject();
+                }
                 entity.Destroy();
             }
         }

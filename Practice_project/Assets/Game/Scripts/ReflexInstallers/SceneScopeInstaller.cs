@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Game.Scripts.Core;
+using Game.Scripts.Utils;
 using Reflex.Core;
 using UnityEngine;
 
@@ -6,11 +9,16 @@ namespace Game.ReflexInstallers
     public class SceneScopeInstaller : MonoBehaviour, IInstaller
     {
         [SerializeField]
-        private ConfigsInstaller _configsInstaller;
+        private BuildingsInstaller _buildingsInstaller;
+
+        [Space]
+        [SerializeField]
+        private SpawnInstaller _spawnInstaller;
         
         public void InstallBindings(ContainerBuilder containerBuilder)
         {
-            _configsInstaller.InstallBindings(containerBuilder);
+            _buildingsInstaller.InstallBindings(containerBuilder);
+            _spawnInstaller.InstallBindings(containerBuilder);
         }
     }
 }

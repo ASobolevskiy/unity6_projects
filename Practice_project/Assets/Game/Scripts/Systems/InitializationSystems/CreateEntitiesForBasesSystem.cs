@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using Entitas;
-using Game.Configs;
+using Entitas.Unity;
+using Game.Scripts.Core;
+using Game.Scripts.Utils;
 using Reflex.Attributes;
 
 namespace Game.Systems
@@ -9,10 +12,7 @@ namespace Game.Systems
         private readonly BaseEntityFactory _factory;
 
         [Inject]
-        private RedBaseConfig _redBaseConfig;
-
-        [Inject]
-        private BlueBaseConfig _blueBaseConfig;
+        private List<BaseBuilding> _baseBuildings;
 
         public CreateEntitiesForBasesSystem(Contexts contexts)
         {
@@ -21,8 +21,10 @@ namespace Game.Systems
 
         public void Initialize()
         {
-            _factory.ConstructEntity(_redBaseConfig);
-            _factory.ConstructEntity(_blueBaseConfig);
+            foreach (var baseBuilding in _baseBuildings)
+            {
+                _factory.ConstructEntity(baseBuilding);
+            }
         }
     }
 
@@ -35,11 +37,20 @@ namespace Game.Systems
             _context = context;
         }
 
-        public GameEntity ConstructEntity(BaseConfig config)
+        public void ConstructEntity(BaseBuilding baseBuilding)
         {
             var entity = _context.CreateEntity();
-            entity.AddHealth(config.HitPoints);
-            return entity;
+            entity.AddHealth(baseBuilding.GetHitPoints());
+            if (baseBuilding.GetTeam() == TeamEnum.Blue)
+                entity.isBlueTeam = true;
+            else
+                entity.isRedTeam = true;
+            entity.isBuildingBase = true;
+            entity.isMovable = false;
+            
+            var go = baseBuilding.gameObject;
+            entity.AddSceneView(go);
+            go.Link(entity);
         }
     }
 }

@@ -8,18 +8,51 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int DeadOrDestroyed = 0;
-    public const int Health = 1;
+    public const int BlueTeam = 0;
+    public const int BuildingBase = 1;
+    public const int DeadOrDestroyed = 2;
+    public const int Health = 3;
+    public const int Movable = 4;
+    public const int MovementDirection = 5;
+    public const int MoveSpeed = 6;
+    public const int Position = 7;
+    public const int Projectile = 8;
+    public const int RedTeam = 9;
+    public const int Rotation = 10;
+    public const int SceneView = 11;
+    public const int Unit = 12;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 13;
 
     public static readonly string[] componentNames = {
+        "BlueTeam",
+        "BuildingBase",
         "DeadOrDestroyed",
-        "Health"
+        "Health",
+        "Movable",
+        "MovementDirection",
+        "MoveSpeed",
+        "Position",
+        "Projectile",
+        "RedTeam",
+        "Rotation",
+        "SceneView",
+        "Unit"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(BlueTeamComponent),
+        typeof(BuildingBaseComponent),
         typeof(DeadOrDestroyedComponent),
-        typeof(HealthComponent)
+        typeof(HealthComponent),
+        typeof(MovableComponent),
+        typeof(MovementDirectionComponent),
+        typeof(MoveSpeedComponent),
+        typeof(PositionComponent),
+        typeof(ProjectileComponent),
+        typeof(RedTeamComponent),
+        typeof(RotationComponent),
+        typeof(SceneViewComponent),
+        typeof(UnitComponent)
     };
 }
