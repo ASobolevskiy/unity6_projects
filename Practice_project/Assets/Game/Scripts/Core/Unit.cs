@@ -8,5 +8,7 @@ namespace Game.Scripts.Core
         public abstract int GetHitPoints();
 
         public abstract float GetMoveSpeed();
+
+        public abstract float GetAttackRange();
     }
 }

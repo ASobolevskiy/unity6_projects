@@ -23,7 +23,8 @@ namespace Game.Systems
         {
             foreach (var entity in entities)
             {
-                entity.sceneView.Value.transform.position = entity.position.Value;
+                if(!entity.isBuildingBase)
+                    entity.sceneView.Value.transform.position = entity.position.Value;
             }
         }
     }

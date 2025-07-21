@@ -13,5 +13,10 @@ namespace Game.Scripts.Core
         {
             return 0f;
         }
+
+        public override float GetAttackRange()
+        {
+            return 0f;
+        }
     }
 }

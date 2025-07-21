@@ -11,8 +11,13 @@ namespace Game.Configs
         [SerializeField]
         private float _moveSpeed;
 
+        [SerializeField]
+        private float _attackRange;
+
         public int HitPoints => _hitPoints;
 
         public float MoveSpeed => _moveSpeed;
+
+        public float AttackRange => _attackRange;
     }
 }

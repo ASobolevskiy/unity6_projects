@@ -4,6 +4,7 @@ using Entitas.Unity;
 using Game.Scripts.Core;
 using Game.Scripts.Utils;
 using Reflex.Attributes;
+using UnityEngine;
 
 namespace Game.Systems
 {
@@ -50,6 +51,10 @@ namespace Game.Systems
             
             var go = baseBuilding.gameObject;
             entity.AddSceneView(go);
+            var goPos = go.transform.position;
+            var xPos = entity.isBlueTeam ? goPos.x + 5 : goPos.x - 5;
+            var entPos = new Vector3(xPos, goPos.y, goPos.z);
+            entity.AddPosition(entPos);
             go.Link(entity);
         }
     }

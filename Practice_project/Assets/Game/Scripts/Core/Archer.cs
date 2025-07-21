@@ -15,8 +15,13 @@ namespace Game.Scripts.Core
         [ReadOnly, ShowInInspector]
         private float _moveSpeed => _config == null ? 0 : _config.MoveSpeed;
 
+        [ReadOnly, ShowInInspector]
+        private float _attackRange => _config == null ? 0 : _config.AttackRange;
+
         public override int GetHitPoints() => _hitPoints;
 
         public override float GetMoveSpeed() => _moveSpeed;
+
+        public override float GetAttackRange() => _attackRange;
     }
 }

@@ -58,6 +58,8 @@ namespace Game.Controllers
                 .Add(new MovementSystem(contexts))
                 .Add(new LinkEntityPositionToGameObjectPositionSystem(contexts))
                 .Add(new HealthSystem(contexts.game))
+                .Add(new TargetLookUpSystem(contexts))
+                .Add(new AttackIfTargetInRangeSystem(contexts))
                 .Add(new RemoveDeadOrDestroyedEntitiesSystem(contexts.game));
         }
 

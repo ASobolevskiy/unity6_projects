@@ -49,6 +49,7 @@ namespace Game.Systems
                 gameEntity.AddMovementDirection(Vector3.zero);
                 gameEntity.AddHealth(prefab.GetHitPoints());
                 gameEntity.AddMoveSpeed(prefab.GetMoveSpeed());
+                gameEntity.AddAttackRange(prefab.GetAttackRange());
 
                 //TODO use pools
                 var go = entity.unitPrefab.Value.gameObject;
