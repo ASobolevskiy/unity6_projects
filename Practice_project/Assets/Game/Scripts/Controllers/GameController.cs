@@ -65,8 +65,11 @@ namespace Game.Controllers
 
         private Entitas.Systems CreateEventSystems(Contexts contexts)
         {
+            var unitSpawnSystem = new UnitSpawnSystem(contexts);
+            AttributeInjector.Inject(unitSpawnSystem, _sceneScopeContainer);
             return new Feature("Event systems")
-                .Add(new UnitSpawnSystem(contexts));
+                .Add(unitSpawnSystem)
+                .Add(new ProjectileSpawnSystem(contexts));
         }
         
         private void HandleEntityWillBeDestroyed(IContext context, IEntity entity)

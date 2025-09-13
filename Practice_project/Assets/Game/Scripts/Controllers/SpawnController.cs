@@ -26,7 +26,7 @@ namespace Game.Controllers
             eventEntity.AddPosition(position);
             eventEntity.AddRotation(rotation);
             eventEntity.AddUnitPrefab(prefab);
-            eventEntity.isSpawnRequested = true;
+            eventEntity.isUnitSpawnRequested = true;
             eventEntity.isUnit = true;
             eventEntity.isBlueTeam = team == TeamEnum.Blue;
             eventEntity.isRedTeam = team == TeamEnum.Red;

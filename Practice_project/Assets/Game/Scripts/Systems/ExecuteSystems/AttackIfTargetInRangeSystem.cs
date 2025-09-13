@@ -7,15 +7,18 @@ namespace Game.Scripts.Systems.ExecuteSystems
     {
         private const float ATTACK_DISTANCE_THRESHOLD = 0.5f;
         private readonly IGroup<GameEntity> _attackers;
+        private readonly Contexts _contexts;
         
         public AttackIfTargetInRangeSystem(Contexts contexts)
         {
+            _contexts = contexts;
             var matchers = new[]
             {
                 GameMatcher.Unit,
                 GameMatcher.Target,
                 GameMatcher.AttackRange,
-                GameMatcher.MovementDirection
+                GameMatcher.MovementDirection,
+                GameMatcher.Weapon
             };
             
             _attackers = contexts.game.GetGroup(GameMatcher.AllOf(matchers));
@@ -25,13 +28,34 @@ namespace Game.Scripts.Systems.ExecuteSystems
         {
             foreach (var unit in _attackers.GetEntities())
             {
-                var sqrDistance = unit.attackRange.Value * unit.attackRange.Value;
-                var sqrMagnitude = (unit.target.Value.position.Value - unit.position.Value).sqrMagnitude;
-                var isInAttackRange = Mathf.Abs(sqrMagnitude - sqrDistance) < ATTACK_DISTANCE_THRESHOLD;
+                var attackRange = unit.attackRange.Value;
+                var sqrAttackRange = attackRange * attackRange;
+                var target = unit.target.Value;
+                var directionToTarget = target.position.Value - unit.position.Value;
+                var sqrMagnitude = directionToTarget.sqrMagnitude;
+                var isInAttackRange = Mathf.Abs(sqrMagnitude - sqrAttackRange) < ATTACK_DISTANCE_THRESHOLD;
                 if (isInAttackRange)
                 {
                     unit.isMovable = false;
                     unit.isAttacking = true;
+                    
+                    //TODO trigger attack system
+                    if (!unit.weapon.IsRanged) 
+                        continue;
+                    
+                    var eventEntity = _contexts.events.CreateEntity();
+                    var firePointPos = unit.weapon.AttackPoint.position;
+                    var projectilePosition = unit.sceneView.Value.transform.TransformPoint(firePointPos);
+                    var projectileDirection = target.position.Value - projectilePosition;
+                    var projectilePrefab = unit.weapon.Prefab;
+                    eventEntity.AddMovementDirection(projectileDirection);
+                    eventEntity.AddPosition(projectilePosition);
+                    eventEntity.AddRotation(Quaternion.LookRotation(projectileDirection.normalized));
+                    eventEntity.isProjectile = true;
+                    eventEntity.isBlueTeam = unit.isBlueTeam;
+                    eventEntity.isRedTeam = unit.isRedTeam;
+                    eventEntity.AddProjectilePrefab(projectilePrefab);
+                    eventEntity.isProjectileSpawnRequested = true;
                 }
                 else
                 {

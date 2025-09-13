@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class EventsEntity {
 
-    static readonly SpawnRequested spawnRequestedComponent = new SpawnRequested();
+    static readonly ProjectileSpawnRequested projectileSpawnRequestedComponent = new ProjectileSpawnRequested();
 
-    public bool isSpawnRequested {
-        get { return HasComponent(EventsComponentsLookup.SpawnRequested); }
+    public bool isProjectileSpawnRequested {
+        get { return HasComponent(EventsComponentsLookup.ProjectileSpawnRequested); }
         set {
-            if (value != isSpawnRequested) {
-                var index = EventsComponentsLookup.SpawnRequested;
+            if (value != isProjectileSpawnRequested) {
+                var index = EventsComponentsLookup.ProjectileSpawnRequested;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : spawnRequestedComponent;
+                            : projectileSpawnRequestedComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class EventsEntity {
 //------------------------------------------------------------------------------
 public sealed partial class EventsMatcher {
 
-    static Entitas.IMatcher<EventsEntity> _matcherSpawnRequested;
+    static Entitas.IMatcher<EventsEntity> _matcherProjectileSpawnRequested;
 
-    public static Entitas.IMatcher<EventsEntity> SpawnRequested {
+    public static Entitas.IMatcher<EventsEntity> ProjectileSpawnRequested {
         get {
-            if (_matcherSpawnRequested == null) {
-                var matcher = (Entitas.Matcher<EventsEntity>)Entitas.Matcher<EventsEntity>.AllOf(EventsComponentsLookup.SpawnRequested);
+            if (_matcherProjectileSpawnRequested == null) {
+                var matcher = (Entitas.Matcher<EventsEntity>)Entitas.Matcher<EventsEntity>.AllOf(EventsComponentsLookup.ProjectileSpawnRequested);
                 matcher.componentNames = EventsComponentsLookup.componentNames;
-                _matcherSpawnRequested = matcher;
+                _matcherProjectileSpawnRequested = matcher;
             }
 
-            return _matcherSpawnRequested;
+            return _matcherProjectileSpawnRequested;
         }
     }
 }

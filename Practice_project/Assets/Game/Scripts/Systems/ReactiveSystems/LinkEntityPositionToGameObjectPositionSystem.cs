@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entitas;
+using UnityEngine;
 
 namespace Game.Systems
 {
@@ -23,8 +24,9 @@ namespace Game.Systems
         {
             foreach (var entity in entities)
             {
-                if(!entity.isBuildingBase)
-                    entity.sceneView.Value.transform.position = entity.position.Value;
+                if (entity.isBuildingBase)
+                    continue;
+                entity.sceneView.Value.transform.position = entity.position.Value;
             }
         }
     }

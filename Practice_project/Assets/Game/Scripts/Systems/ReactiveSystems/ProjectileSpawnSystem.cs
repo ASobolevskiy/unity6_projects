@@ -1,19 +1,15 @@
 using System.Collections.Generic;
 using Entitas;
 using Entitas.Unity;
-using Reflex.Attributes;
 using UnityEngine;
 
 namespace Game.Systems
 {
-    public class UnitSpawnSystem : ReactiveSystem<EventsEntity>
+    public class ProjectileSpawnSystem : ReactiveSystem<EventsEntity>
     {
         private readonly Contexts _contexts;
-
-        [Inject]
-        private Transform _worldTransform;
         
-        public UnitSpawnSystem(Contexts contexts) : base(contexts.events)
+        public ProjectileSpawnSystem(Contexts contexts) : base(contexts.events)
         {
             _contexts = contexts;
         }
@@ -22,7 +18,7 @@ namespace Game.Systems
         {
             var matches = new[]
             {
-                EventsMatcher.UnitSpawnRequested
+                EventsMatcher.ProjectileSpawnRequested
             };
 
             return context.CreateCollector(EventsMatcher.AllOf((matches)));
@@ -30,44 +26,38 @@ namespace Game.Systems
 
         protected override bool Filter(EventsEntity entity)
         {
-            return entity.isUnit
-                   && entity.isUnitSpawnRequested
+            return entity.isProjectile
+                   && entity.isProjectileSpawnRequested
                    && (entity.isBlueTeam || entity.isRedTeam)
                    && entity.hasPosition
                    && entity.hasRotation
-                   && entity.hasUnitPrefab;
+                   && entity.hasMovementDirection
+                   && entity.hasProjectilePrefab;
         }
 
         protected override void Execute(List<EventsEntity> entities)
         {
             foreach (var entity in entities)
             {
-                var prefab = entity.unitPrefab.Value;
+                var prefab = entity.projectilePrefab.Value;
                 var gameEntity = _contexts.game.CreateEntity();
                 gameEntity.AddPosition(entity.position.Value);
                 gameEntity.AddRotation(entity.rotation.Value);
-                gameEntity.isUnit = entity.isUnit;
+                gameEntity.isProjectile = true;
                 gameEntity.isRedTeam = entity.isRedTeam;
                 gameEntity.isBlueTeam = entity.isBlueTeam;
                 gameEntity.isMovable = true;
-                gameEntity.AddMovementDirection(Vector3.zero);
-                gameEntity.AddHealth(prefab.GetHitPoints());
-                gameEntity.AddMoveSpeed(prefab.GetMoveSpeed());
-                var attackRange = prefab.GetAttackRange();
-                gameEntity.AddAttackRange(attackRange);
-
+                gameEntity.AddMovementDirection(entity.movementDirection.Value);
+                gameEntity.AddMoveSpeed(prefab.GetProjectileSpeed());
+                
                 //TODO use pools
-                var go = entity.unitPrefab.Value.gameObject;
+                var go = entity.projectilePrefab.Value.gameObject;
                 var gameObject = Object.Instantiate(go,
                     gameEntity.position.Value,
                     gameEntity.rotation.Value);
                 gameEntity.AddSceneView(gameObject);
                 gameObject.Link(gameEntity);
                 
-                var isRangedWeapon = attackRange > 1;
-                var attackPoint = prefab.GetAttackPoint();
-                var projectilePrefab = prefab.GetProjectile();
-                gameEntity.AddWeapon(isRangedWeapon, attackPoint, projectilePrefab);
                 entity.Destroy();
             }
         }

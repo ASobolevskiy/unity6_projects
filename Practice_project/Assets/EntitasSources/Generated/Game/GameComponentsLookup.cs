@@ -24,8 +24,9 @@ public static class GameComponentsLookup {
     public const int SceneView = 13;
     public const int Target = 14;
     public const int Unit = 15;
+    public const int Weapon = 16;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "Attacking",
@@ -43,7 +44,8 @@ public static class GameComponentsLookup {
         "Rotation",
         "SceneView",
         "Target",
-        "Unit"
+        "Unit",
+        "Weapon"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -62,6 +64,7 @@ public static class GameComponentsLookup {
         typeof(RotationComponent),
         typeof(SceneViewComponent),
         typeof(TargetComponent),
-        typeof(UnitComponent)
+        typeof(UnitComponent),
+        typeof(WeaponComponent)
     };
 }
